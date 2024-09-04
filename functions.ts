@@ -14,7 +14,7 @@ export function localStoreSet (set:Object) {
 export function h1Search (url:string) {
     for (const property of NAV_ITEMS) {
         if(property.page === url){
-            return property.name
+            return property.h1
         }
     }
 }

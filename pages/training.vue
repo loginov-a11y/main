@@ -1,27 +1,22 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import {useTrainingStore} from '~/store/TrainingPinia'
-import {importJson} from "~/store/importJson";
+import {useTrainingStore} from '~/store/TrainingPinia';
 import { h1Search } from "~/functions";
+import { jsonLocalGet } from "~/asyncFunction";
+
+
 const trainingStore = useTrainingStore();
-const iJson = importJson()
 const testJson = ref();
-const additionPlusOnce = ref();
-const additionPlusTwo =  ref();
-const additionMulOnce = ref();
-const additionMulTwo =  ref();
+const additionPlusOnce = ref(),
+    additionPlusTwo =  ref(),
+    additionMulOnce = ref(),
+    additionMulTwo =  ref();
 const getWidgets = async () => {
-  testJson.value = await iJson.loadWidgets();
+  testJson.value = await jsonLocalGet();
   testJson.value.default.forEach((element:any)=>{
     console.log(element)
   })
 };
-
-
-
-
-
-
 </script>
 
 <template>

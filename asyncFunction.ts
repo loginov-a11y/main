@@ -34,3 +34,6 @@ export async function authorizationRequest(login: string, email: string, passwor
 export async function localStoreGet(name: string) {
     return await JSON.parse(localStorage.getItem(name) || '{}')
 }
+export  async function jsonLocalGet(){
+    return await import('~/assets/json/test.json')
+}
