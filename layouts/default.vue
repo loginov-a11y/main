@@ -10,12 +10,11 @@
 
 import Header from "~/components/Header.vue";
 import Footer from "~/components/Footer.vue";
-import {useObservableStore } from "~/store/Observable";
-const ObservableStore = useObservableStore();
+import {useVariableStore} from "~/store/variableStore";
+const loginStore = useVariableStore();
 
 onMounted(() => {
-  ObservableStore.user = JSON.parse(localStorage.getItem('user')|| '{}')
-
+  loginStore.user = JSON.parse(localStorage.getItem('user')|| '{}')
 })
 
 </script>

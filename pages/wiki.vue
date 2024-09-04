@@ -1,5 +1,9 @@
+<script setup lang="ts">
+import { h1Search } from "~/functions";
+</script>
 <template>
   <div class="pageContainer">
+    <h1>{{h1Search(useRequestURL().pathname)}}</h1>
     <div>
       <div class="wiki">
         <div class="wiki__item">сделать заглавные буквы строчными -> <span class="wiki__fun">.toLowerCase()</span><span class="wiki__title">&#10071;</span></div>
@@ -12,9 +16,7 @@
   </div>
 
 </template>
-<script setup lang="ts">
 
-</script>
 <style lang="scss" scoped>
 .wiki{
   &__item{

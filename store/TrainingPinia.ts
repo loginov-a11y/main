@@ -1,6 +1,7 @@
 import {defineStore} from "pinia";
 import {computed,watch, ref} from "vue";
-import {useObservableStore} from "~/store/Observable";
+import { useVariableStore } from "~/store/variableStore";
+
 
 export const useTrainingStore = defineStore('useTrainingStore', () => {
 
@@ -8,7 +9,7 @@ export const useTrainingStore = defineStore('useTrainingStore', () => {
     let additionMultiplier = ref(0);
     let computedTestNumber = ref(1)
     let watchNumber = ref(0)
-    const ObservableStore = useObservableStore()
+    const varStore = useVariableStore()
 
     const addition = (one = 0,two = 0) => {additionSum.value =  one + two}
     const multiplication = (one = 0,two = 0) => {additionMultiplier.value =  one * two}
@@ -20,11 +21,11 @@ export const useTrainingStore = defineStore('useTrainingStore', () => {
     })
     const computedTestIncrease = () => {
         ++computedTestNumber.value
-        ++ObservableStore.storeNum
+        ++varStore.storeNum
     }
 
-    watch(()=> ObservableStore.storeNum,() =>{
-        console.log('testObservableStore.storeNum',ObservableStore.storeNum)
+    watch(()=> varStore.storeNum,() =>{
+        console.log('testObservableStore.storeNum',varStore.storeNum)
     }, {deep: true})
 
 

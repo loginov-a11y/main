@@ -1,16 +1,17 @@
 import {defineStore} from "pinia";
 import {ref, watch} from "vue";
-import {useObservableStore} from "~/store/Observable";
+//import {useObservableStore} from "~/store/Observable";
+import { useVariableStore } from "~/store/variableStore";
 
 export const useTrainingApiStore = defineStore('useTrainingApiStore', () => {
-
+    const varStore = useVariableStore()
     const stateLoader = ref(false);
     const citySet = ref({})
     const token = ref('f6cff66db16be31249cd7a802b60867a80263b8c');
     const clear = () => {
         citySet.value = {}
     }
-    const ObservableStore = useObservableStore()
+    //const ObservableStore = useObservableStore()
 
     const newSearch = async(search:string,request: string) => {
         stateLoader.value = true;
@@ -31,8 +32,8 @@ export const useTrainingApiStore = defineStore('useTrainingApiStore', () => {
         citySet.value = data.suggestions
         stateLoader.value = false;
     }
-    watch(()=> ObservableStore.storeNum,() =>{
-        console.log('testObservableStore.storeNum useTrainingApiStore',ObservableStore.storeNum)
+    watch(()=> varStore.storeNum,() =>{
+        console.log('testObservableStore.storeNum useTrainingApiStore',varStore.storeNum)
     }, {deep: true})
     return {
         newSearch,

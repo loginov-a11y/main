@@ -1,6 +1,143 @@
+<script setup>
+import { h1Search } from "~/functions";
+/*
+Дана квадратная матрица, проверять квадратность или отсутствие матрицы не требуется
+Написать функцию, преобразующую входную квадратную матрицу так, чтобы на ее главной диагонали были 1
+Находим в строке 1 и помещаем её на главную диагональ
+Порядок остальных чисел в строке не должен меняться
+При отсутствии 1 в строке выкидывать эксепшен
+При наличии более чем одной 1 в строке смещать первую
+Важно получить рабочий код, оптимизация кода не требуется
+
+
+Входная матрица
+1 2 3 4 5
+1 2 3 4 5
+5 4 3 2 1
+1 2 3 4 5
+1 2 3 4 5
+
+Выходная матрица
+1 2 3 4 5
+2 1 3 4 5
+5 4 1 3 2
+2 3 4 1 5
+2 3 4 5 1
+*/
+
+// const toOneMatrix = (matrix = []) => {
+//   // писать код
+//   // console.log('matrix finish',[
+//   //   [1, 2, 3, 4, 5],
+//   //   [2, 1, 3, 4, 5],
+//   //   [2, 3, 1, 4, 5],
+//   //   [2, 3, 4, 1, 5],
+//   //   [2, 3, 4, 5, 1],
+//   // ]);
+//   matrix.forEach((item, i) => {
+//     let indexEl = null;
+//     item.find((num, index) => {
+//       if(indexEl === null && num === 1){
+//         indexEl = index;
+//       }else{
+//
+//       }
+//     });
+//     function searchDouble(arr){
+//       let tempArr = {};
+//       arr.forEach(el=>{
+//         if(tempArr[el]){
+//           return el
+//         }else{
+//           tempArr[el] = 1
+//         }
+//       })
+//       console.log(tempArr)
+//     }
+//
+//     let transfer = true;
+//     item.forEach((item2,j)=>{
+//       if(i===j){
+//         if(transfer){
+//           if(indexEl !== null){
+//             item.splice(i, 0, item.splice(indexEl, 1)[0]);
+//           }else{
+//             searchDouble(item)
+//           }
+//
+//           transfer = false
+//         }
+//       }
+//     });
+//   })
+//   //console.log('matrix result',matrix)
+//   return matrix;
+// }
+// console.assert(
+//     JSON.stringify(toOneMatrix(
+//         [
+//           [2, 3, 4, 5, 1],
+//           [1, 2, 3, 1, 5],
+//           [2, 3, 1, 4, 5],
+//           [1, 2, 5, 4, 3],
+//           [1, 2, 3, 4, 5],
+//         ]
+//     )) === JSON.stringify([
+//       [1, 2, 3, 4, 5],
+//       [2, 1, 3, 1, 5],
+//       [2, 3, 1, 4, 5],
+//       [2, 5, 4, 1, 3],
+//       [2, 3, 4, 5, 1],
+//     ])
+// )
+// console.assert(
+//     JSON.stringify(toOneMatrix(
+//         [
+//           [1, 2, 3, 4, 5],
+//           [1, 2, 3, 4, 5],
+//           [1, 2, 3, 4, 5],
+//           [1, 2, 3, 4, 5],
+//           [1, 2, 3, 4, 5],
+//         ]
+//     )) === JSON.stringify([
+//       [1, 2, 3, 4, 5],
+//       [2, 1, 3, 4, 5],
+//       [2, 3, 1, 4, 5],
+//       [2, 3, 4, 1, 5],
+//       [2, 3, 4, 5, 1],
+//     ])
+// )
+// try {
+//   console.assert(
+//       JSON.stringify(toOneMatrix(
+//           [
+//             [1, 2, 3, 4, 5],
+//             [1, 2, 3, 4, 5],
+//             [2, 2, 3, 4, 5],
+//             [1, 2, 3, 4, 5],
+//             [1, 2, 3, 4, 5],
+//           ]
+//       )) === JSON.stringify([
+//         [1, 2, 3, 4, 5],
+//         [2, 1, 3, 4, 5],
+//         [2, 3, 1, 4, 5],
+//         [2, 3, 4, 1, 5],
+//         [2, 3, 4, 5, 1],
+//       ])
+//   )
+// } catch(e) {
+//   console.log('no one in line')
+// }
+
+
+
+
+
+
+</script>
 <template>
   <div class="pageContainer">
-    <h1>Задачи JS TS</h1>
+    <h1>{{h1Search(useRequestURL().pathname)}}</h1>
     <div class="task-container">
       <div class="task-column">
         <details class="taskItem">
@@ -158,6 +295,154 @@ console.log(flatter([[1,2,3],[4,[5]]]))
               return Object.values(result)
             }
             console.log(removeDublicates(array))
+          </pre>
+        </details>
+        <details class="taskItem">
+          <summary class="btnAccordion">
+            Развернуть каждое слово в строке
+          </summary>
+          <pre>
+            const string = 'Welkom to this';
+            const turning = (val) => {
+              const result = []
+              let tempArr = val.split(' ');
+              tempArr.forEach((item)=>{
+                let tempVal = item.split('').reverse()
+               result.push(tempVal.join(''))
+              })
+              return result.join(' ')
+            }
+            //console.log(turning(string))
+          </pre>
+        </details>
+        <details class="taskItem">
+          <summary class="btnAccordion">Множественные Значения (1)(2)(3)(4)</summary>
+          <pre>
+            function sum(n:number){
+              return function (a:number){
+                return sum(a + n)
+              }
+            }
+            console.log(sum(1)(2)(3)(3)(3)(3)(3)(3))
+          </pre>
+        </details>
+        <details class="taskItem">
+          <summary class="btnAccordion">Напишите функцию для сортировки символов в строке по их частоте встречаемости</summary>
+          <pre>
+            const findUniqueElement = (str) => {
+  let tempArr = {}
+  str.split('').forEach((num)=>{
+    if(tempArr[num]){
+      tempArr[num]++
+    }else{
+      tempArr[num] = 1;
+    }
+  })
+  return Object.keys(tempArr).sort((a,b)=> {
+    return tempArr[b] - tempArr[a]
+  }).join('');
+}
+const arrayExample = 'входных данных и вочастоте';
+console.log(findUniqueElement(arrayExample));
+          </pre>
+        </details>
+        <details class="taskItem">
+          <summary class="btnAccordion">Дано некоторое число. Проверьте, что цифры этого числа расположены по возрастанию.</summary>
+          <pre>
+            const testWork = (item) => {
+  let tempArr = (''+item).split('');
+  let sortArr = []
+  tempArr.forEach((item)=>{
+    sortArr.push(item * 1)
+  });
+  return sortArr.sort().join('')*1 === item
+}
+console.log(testWork(12345679));
+          </pre>
+        </details>
+        <details class="taskItem">
+          <summary class="btnAccordion">вывести только чётные числа</summary>
+          <pre>
+            const testWork = (param) => {
+  let result = []
+  for(let start = param[0]; start<=param[1]; start++){
+    if(start % 2 === 0){
+      result.push(start)
+    }
+  }
+  return result
+}
+console.log('testWork',testWork([10,50]));
+          </pre>
+        </details>
+        <details class="taskItem">
+          <summary class="btnAccordion"></summary>
+          <pre>
+          </pre>
+        </details>
+        <details class="taskItem">
+          <summary class="btnAccordion"></summary>
+          <pre>
+          </pre>
+        </details>
+        <details class="taskItem">
+          <summary class="btnAccordion"></summary>
+          <pre>
+          </pre>
+        </details>
+        <details class="taskItem">
+          <summary class="btnAccordion"></summary>
+          <pre>
+          </pre>
+        </details>
+        <details class="taskItem">
+          <summary class="btnAccordion"></summary>
+          <pre>
+          </pre>
+        </details>
+        <details class="taskItem">
+          <summary class="btnAccordion"></summary>
+          <pre>
+          </pre>
+        </details>
+        <details class="taskItem">
+          <summary class="btnAccordion"></summary>
+          <pre>
+          </pre>
+        </details>
+        <details class="taskItem">
+          <summary class="btnAccordion"></summary>
+          <pre>
+          </pre>
+        </details>
+        <details class="taskItem">
+          <summary class="btnAccordion"></summary>
+          <pre>
+          </pre>
+        </details>
+        <details class="taskItem">
+          <summary class="btnAccordion"></summary>
+          <pre>
+          </pre>
+        </details>
+        <details class="taskItem">
+          <summary class="btnAccordion"></summary>
+          <pre>
+          </pre>
+        </details>
+        <details class="taskItem">
+          <summary class="btnAccordion"></summary>
+          <pre>
+          </pre>
+        </details>
+        <details class="taskItem">
+          <summary class="btnAccordion"></summary>
+          <pre>
+          </pre>
+        </details>
+        <details class="taskItem">
+          <summary class="btnAccordion"></summary>
+          <pre>
           </pre>
         </details>
       </div>
@@ -334,7 +619,7 @@ queue.print()
             <div class="taskItem__var">
               <h5>Вариант 1</h5>
               <pre>
-                const someList = {
+const someList = {
   value:1,
   next:{
     value:2,
@@ -402,55 +687,190 @@ const reversePrint = (obj:any) => {
             </div>
           </div>
         </details>
+        <details class="taskItem">
+          <summary class="btnAccordion">функция принимает 2 объекта с разными ключами из которых могут пересекатся. Необходимо вернуть первый объект с обновлёнными значениями из второго объекта(только те которые совпадают)</summary>
+          <pre>
+            const obj1 = {
+              foo: 'foo',
+              bar: 'bar'
+            }
+            const obj2 = {
+              bar: 'foo',
+              some: 'some'
+            }
+            const res = {
+              foo: 'foo',
+              bar: 'foo'
+            }
+
+            const sortObj = (obj1:Object,obj2:Object) => {
+              let result = obj1
+              for(let key in result){
+                for(let value in obj2){
+                  if(key === value){
+                    result[key] = obj2[value]
+                  }
+                }
+              }
+              return result;
+            }
+            console.log(sortObj(obj1,obj2))
+          </pre>
+        </details>
+        <details class="taskItem">
+          <summary class="btnAccordion">реализовать функцию которая принимает 2 параметра массив и калбек и вернуть массив где округлённые ключи это названия групп</summary>
+          <pre>
+            let res = {
+              '4': [4.2],
+              '6': [6.1,6.3]
+            }
+            const groupBy = (arr:any,callbackFunction:any) => {
+              let result = {}
+              arr.forEach((item:number) => {
+                let key = callbackFunction(item)
+                if(!result[key]){
+                  result[key] = [item]
+                }else{
+                  result[key].push(item)
+                }
+              })
+              return result;
+
+            }
+            console.log(groupBy([6.1, 4.2, 6.3],Math.floor))
+          </pre>
+        </details>
+        <details class="taskItem">
+          <summary class="btnAccordion">Напишите функцию на джаваскрипт, которая принимает параметр со строкой и преобразовывает ее в следующий вид:"Привет Мир" => "прИвЕт мИр"</summary>
+          <pre>
+            const pol = (val:any) => {
+              let result = []
+              let params = ["а", "е", "ё", "и", "о", "у", "ы", "э", "ю", "я"];
+              let tempResult = val.split('');
+              function findPar(val:string) {
+                let st = false;
+                params.forEach((item)=> {
+                  if(val === item){
+                    st = true
+                  }
+                })
+                return st
+              }
+               for(let Letter of tempResult){
+                 if(findPar(Letter)){
+                   result.push(Letter.toUpperCase())
+                 }else{
+                   result.push(Letter)
+                 }
+              }
+              return result.join('');
+            }
+            console.log(pol('Это относительно'))
+          </pre>
+        </details>
+        <details class="taskItem">
+          <summary class="btnAccordion">Перебор объекта по текстовой ссылке a.r.b.i</summary>
+          <pre>
+            const obj = {
+              a: {
+                d: 1,
+                f: "data",
+                r: {
+                  b: {
+                    i: 90
+                  }
+                }
+              },
+              b: {
+                c: {
+                  r: 2,
+                },
+              },
+            };
+            let getOr = (link:string,base:number,ob:Object) =>{
+              let result = null;
+              let linkArr = link.split('.')
+              let temObj:any = ob
+              for(let item of linkArr){
+                if(temObj[item]){
+                  temObj = temObj[item]
+                  if(typeof temObj === 'number'){
+                    result = temObj
+                  }
+                }else{
+                  return base;
+                }
+              }
+              return result
+            }
+            console.log(getOr("a.r.b.i", 1000, obj))
+          </pre>
+        </details>
+        <details class="taskItem">
+          <summary class="btnAccordion"></summary>
+          <pre>
+          </pre>
+        </details>
+        <details class="taskItem">
+          <summary class="btnAccordion"></summary>
+          <pre>
+          </pre>
+        </details>
+        <details class="taskItem">
+          <summary class="btnAccordion"></summary>
+          <pre>
+          </pre>
+        </details>
+        <details class="taskItem">
+          <summary class="btnAccordion"></summary>
+          <pre>
+          </pre>
+        </details>
+        <details class="taskItem">
+          <summary class="btnAccordion"></summary>
+          <pre>
+          </pre>
+        </details>
+        <details class="taskItem">
+          <summary class="btnAccordion"></summary>
+          <pre>
+          </pre>
+        </details>
+        <details class="taskItem">
+          <summary class="btnAccordion"></summary>
+          <pre>
+          </pre>
+        </details>
+        <details class="taskItem">
+          <summary class="btnAccordion"></summary>
+          <pre>
+          </pre>
+        </details>
+        <details class="taskItem">
+          <summary class="btnAccordion"></summary>
+          <pre>
+          </pre>
+        </details>
+        <details class="taskItem">
+          <summary class="btnAccordion"></summary>
+          <pre>
+          </pre>
+        </details>
+        <details class="taskItem">
+          <summary class="btnAccordion"></summary>
+          <pre>
+          </pre>
+        </details>
+        <details class="taskItem">
+          <summary class="btnAccordion"></summary>
+          <pre>
+          </pre>
+        </details>
       </div>
     </div>
   </div>
-
 </template>
-<script setup lang="ts">
-const string = 'Welkom to this';
 
-const turning = (val) => {
-  const result = []
-  let tempArr = val.split(' ');
-  tempArr.forEach((item)=>{
-    let tempVal = item.split('').reverse()
-   result.push(tempVal.join(''))
-  })
-  return result.join(' ')
-}
-//console.log(turning(string))
-
-let firstObj = { name: "Hello"}
-let secondObj = firstObj;
-//console.log(secondObj.name,firstObj.name);
-firstObj = {name: 'Bye'};
-//console.log(secondObj.name,firstObj.name);
-// провал
-
-// var array = [10, 20, 30, 40];
-// for(let i = 0; i< array.length;i++){
-//   setTimeout(function (){
-//     console.log('temI',i)
-//   },3000)
-// }
-
-var f = function (){
-  console.log(1);
-}
-var execute = function(f:any) {
-  setTimeout(f,1000)
-}
-execute(f);
-f = function () {
-  console.log(2)
-};
-
-
-
-
-
-</script>
 <style scoped lang="scss">
 .taskItem{
   padding: 20px 0;

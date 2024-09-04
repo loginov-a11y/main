@@ -1,9 +1,8 @@
-import { useObservableStore } from "~/store/Observable";
+import { localStoreGet } from "~/asyncFunction";
 
-const ObservableStore = useObservableStore();
 export default defineNuxtRouteMiddleware((to, from) => {
-    if (ObservableStore.user.authStatus === 'successfully') {
-        return navigateTo("/admin");
-    }
-
+    (async function(){
+        const status  = await localStoreGet('user');
+        if (status.authStatus === 'successfully') return navigateTo("/admin");
+    })();
 })

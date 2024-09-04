@@ -1,7 +1,32 @@
+<script setup lang="ts">
+import { ref } from 'vue';
+import {useTrainingStore} from '~/store/TrainingPinia'
+import {importJson} from "~/store/importJson";
+import { h1Search } from "~/functions";
+const trainingStore = useTrainingStore();
+const iJson = importJson()
+const testJson = ref();
+const additionPlusOnce = ref();
+const additionPlusTwo =  ref();
+const additionMulOnce = ref();
+const additionMulTwo =  ref();
+const getWidgets = async () => {
+  testJson.value = await iJson.loadWidgets();
+  testJson.value.default.forEach((element:any)=>{
+    console.log(element)
+  })
+};
+
+
+
+
+
+
+</script>
 
 <template>
  <div class="pageContainer">
-   <h1>Задачи база  + {{ObservableStore.observableStoreTest}}</h1>
+   <h1>{{h1Search(useRequestURL().pathname)}}</h1>
    <div>
      <h3>Прибавление
        <span v-if="additionPlusOnce">
@@ -49,32 +74,7 @@
 
 </template>
 
-<script setup lang="ts">
-import { ref } from 'vue';
-import {useTrainingStore} from '~/store/TrainingPinia'
-import {importJson} from "~/store/importJson";
-import { useObservableStore } from "~/store/Observable";
-const ObservableStore =  useObservableStore();
-const trainingStore = useTrainingStore();
-const iJson = importJson()
-const testJson = ref();
-const additionPlusOnce = ref();
-const additionPlusTwo =  ref();
-const additionMulOnce = ref();
-const additionMulTwo =  ref();
-const getWidgets = async () => {
-  testJson.value = await iJson.loadWidgets();
-  testJson.value.default.forEach((element:any)=>{
-    console.log(element)
-  })
-};
 
-onMounted(() => {
-  console.log(ObservableStore.user)
-})
-
-
-</script>
 
 <style scoped>
   .calk{

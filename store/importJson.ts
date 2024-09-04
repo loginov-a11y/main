@@ -7,8 +7,6 @@ export const importJson = defineStore('importJson',   () => {
         countObject.value = 6;
         return await import('~/assets/json/test.json')
     }
-
-
     return {
         loadWidgets,
         countObject
