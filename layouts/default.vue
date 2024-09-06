@@ -1,4 +1,16 @@
+<script setup lang="ts">
+import Header from "~/src/components/TheHeader.vue";
+import Footer from "~/src/components/TheFooter.vue";
+import {useVariableStore} from "~/store/variableStore";
+import {localStoreGet} from "~/src/asyncFunction";
 
+const loginStore = useVariableStore();
+onMounted(() => {
+  (async function () {
+    loginStore.user = await localStoreGet('user');
+  })();
+})
+</script>
 
 <template>
   <Header/>
@@ -6,19 +18,4 @@
   <Footer/>
 </template>
 
-<script setup lang="ts">
-
-import Header from "~/components/Header.vue";
-import Footer from "~/components/Footer.vue";
-import {useVariableStore} from "~/store/variableStore";
-const loginStore = useVariableStore();
-
-onMounted(() => {
-  loginStore.user = JSON.parse(localStorage.getItem('user')|| '{}')
-})
-
-</script>
-
-<style scoped>
-
-</style>
+<style scoped lang="scss"></style>

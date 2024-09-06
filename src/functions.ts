@@ -1,5 +1,5 @@
 import {useVariableStore} from "~/store/variableStore";
-import { NAV_ITEMS } from "~/constant";
+import { NAV_ITEMS } from "~/src/constant";
 
 export function LogOut(localStoreName: string) {
     const varStore = useVariableStore();

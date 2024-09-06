@@ -1,7 +1,7 @@
 
 <script setup lang="ts">
 import {definePageMeta} from "#imports";
-import {LogOut} from "~/functions";
+import {LogOut} from "~/src/functions";
 onMounted(() => {
   definePageMeta({
     middleware: "protected-admin"

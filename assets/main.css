@@ -23,3 +23,8 @@ body{
     padding: 5px;
     font-size: 18px;
 }
+.container{
+    width: 100%;
+    margin: auto;
+    max-width: 960px;
+}

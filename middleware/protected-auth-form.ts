@@ -1,4 +1,4 @@
-import { localStoreGet } from "~/asyncFunction";
+import { localStoreGet } from "~/src/asyncFunction";
 
 export default defineNuxtRouteMiddleware((to, from) => {
     (async function(){

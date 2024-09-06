@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import {useTrainingStore} from '~/store/TrainingPinia';
-import { h1Search } from "~/functions";
-import { jsonLocalGet } from "~/asyncFunction";
+import { h1Search } from "~/src/functions";
+import { jsonLocalGet } from "~/src/asyncFunction";
 
 
 const trainingStore = useTrainingStore();

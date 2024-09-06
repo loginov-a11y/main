@@ -1,6 +1,6 @@
 import {useUserStore} from "~/store/UserStore";
 import {useVariableStore} from "~/store/variableStore";
-import {localStoreSet} from "~/functions";
+import {localStoreSet} from "~/src/functions";
 
 export async function authorizationRequest(login: string, email: string, password: string) {
     const userStore = useUserStore();
@@ -35,5 +35,5 @@ export async function localStoreGet(name: string) {
     return await JSON.parse(localStorage.getItem(name) || '{}')
 }
 export  async function jsonLocalGet(){
-    return await import('~/assets/json/test.json')
+    return await import('assets/json/test.json')
 }

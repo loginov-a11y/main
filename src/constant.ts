@@ -1,5 +1,5 @@
 
-export const NAV_ITEMS = [
+export const NAV_ITEMS:Object = [
     {
         page: '/',
         name: 'Главная',
@@ -21,8 +21,17 @@ export const NAV_ITEMS = [
         h1: 'Задачи с Api и асинхронностью'
     },
     {
+        page: '/test_cases',
+        name: 'Тестовые задачи',
+        h1: 'Задачи По Vue3 из различных собеседований'
+    },
+    {
         page: '/wiki',
         name: 'Wiki',
         h1: 'Моя Wiki по js'
     }
 ]
+export const BUTTON_STATUS_BASE:string = 'base'
+export const BUTTON_STATUS_ERROR:string = 'error'
+export const BUTTON_STATUS_SUCCESS:string = 'success'
+

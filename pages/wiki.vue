@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { h1Search } from "~/functions";
+import { h1Search } from "~/src/functions";
 </script>
 <template>
   <div class="pageContainer">
@@ -14,7 +14,6 @@ import { h1Search } from "~/functions";
       </div>
     </div>
   </div>
-
 </template>
 
 <style lang="scss" scoped>

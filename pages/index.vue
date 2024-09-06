@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { h1Search } from "~/functions";
+import { h1Search } from "~/src/functions";
 </script>
 
 <template>
