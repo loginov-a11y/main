@@ -88,6 +88,7 @@ const
       padding: 5px;
       font-size: 16px;
       width: 100%;
+      border: solid 1px #000;
     }
   }
 

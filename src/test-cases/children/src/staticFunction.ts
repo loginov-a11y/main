@@ -9,7 +9,7 @@ export const objectChildrenItemDelete = (item: number) => {
     }
 }
 
-export const objectChildrenItemAdd = (name: string, strong: number) => {
+export const objectChildrenItemAdd = (name: string, strong:string) => {
     const varStore = useChildrenVariableStore();
     if (varStore.childrenList.length <= 5) {
         varStore.childrenList.push([name, strong]);

@@ -1,26 +1,27 @@
 <script setup>
 import {ref} from "vue";
 import {useChildrenVariableStore} from "./store/variableStore";
-import {objectChildrenItemAdd, objectChildrenItemDelete, childrenLocalStoreSave} from "./src/staticFunction";
+import {objectChildrenItemAdd, childrenLocalStoreSave} from "./src/staticFunction";
 import {childrenLocalStoreGet} from "./src/asyncFunction";
 import {LOCAL_STORE_NAME} from "./src/constant";
-import BaseButton from "~/src/test-cases/children/src/components/BaseButton.vue";
-import TheChildrenItem from "~/src/test-cases/children/src/components/TheChildrenItem.vue";
-import BaseInput from "~/src/test-cases/children/src/components/BaseInput.vue";
+import BaseButton from "./src/components/BaseButton.vue";
+import TheChildrenItem from "./src/components/TheChildrenItem.vue";
+import BaseInput from "./src/components/BaseInput.vue";
 
 const varStore = useChildrenVariableStore();
 
 const name = 'Имя',
     age = 'Возраст',
     text = 'text',
-    number = 'number'
+    number = 'number';
 
 const
     childrenName = ref(""),
-    childrenAge = ref();
+    childrenAge = ref("");
 (async function () {
-  varStore.childrenList = await childrenLocalStoreGet(LOCAL_STORE_NAME);
-  console.log('varStore.childrenList',varStore.childrenList)
+  if (process.client){
+    varStore.childrenList = await childrenLocalStoreGet(LOCAL_STORE_NAME);
+  }
 })();
 
 </script>

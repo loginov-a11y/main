@@ -7,9 +7,11 @@ const props = defineProps({
 </script>
 
 <template>
-  <button :class="props.classStyle">
+  <v-btn
+      :class="props.classStyle"
+  >
     <slot/>
-  </button>
+  </v-btn>
 </template>
 
 <style scoped lang="scss">

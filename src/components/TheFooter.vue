@@ -1,21 +1,21 @@
 <script setup lang="ts">
 
+
+
 </script>
 
 <template>
-  <footer>
-    Футтер
-  </footer>
-
+  <v-footer
+      app
+      absolute
+  >
+    <v-spacer></v-spacer>
+    <div>Футтер &copy; </div>
+  </v-footer>
 </template>
 
 <style scoped>
 footer{
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
   height: 60px;
   background-color: #f5f5f5;
   font-size: 20px;

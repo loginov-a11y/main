@@ -13,9 +13,9 @@ onMounted(() => {
 </script>
 
 <template>
-  <Header/>
-  <NuxtPage/>
-  <Footer/>
+    <Header/>
+    <NuxtPage/>
+    <Footer/>
 </template>
 
 <style scoped lang="scss"></style>

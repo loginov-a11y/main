@@ -4,13 +4,15 @@ const loginStore = useVariableStore();
 import {NAV_ITEMS} from "~/src/constant";
 </script>
 <template>
-  <div>
-    <nav>
-      <NuxtLink v-for="item of NAV_ITEMS" :to=item.page>{{item.name}}</NuxtLink>
-      <NuxtLink v-if="!loginStore.user.authStatus" to="/login">Авторизация</NuxtLink>
-      <NuxtLink v-if="loginStore.user.authStatus" to="/admin">Админка</NuxtLink>
-    </nav>
-  </div>
+  <nav>
+    <NuxtLink
+        v-for="item of NAV_ITEMS"
+        :to=item.page
+        :key="item.page"
+    >{{item.name}}</NuxtLink>
+    <NuxtLink v-if="!loginStore.user.authStatus" to="/login">Авторизация</NuxtLink>
+    <NuxtLink v-if="loginStore.user.authStatus" to="/admin">Админка</NuxtLink>
+  </nav>
 </template>
 
 

@@ -16,9 +16,9 @@ const props = defineProps({
 </script>
 
 <template>
-  <button class="btn button-neutral btn">
+  <v-btn class="btn button-neutral">
     <slot/>
-  </button>
+  </v-btn>
 </template>
 
 <style scoped lang="scss">

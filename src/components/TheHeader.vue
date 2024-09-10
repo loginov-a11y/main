@@ -4,15 +4,14 @@ import Navigation from "~/src/components/TheNavigation.vue";
 </script>
 
 <template>
-  <header>
-    <div class="header">
-      <a href="" class="logo">
-        Pinia
-      </a>
+    <v-app-bar
+        color="#5f9ea0"
+        prominent
+    >
+      <v-toolbar-title>Nuxt3 Pinia Vuetify</v-toolbar-title>
+      <v-spacer></v-spacer>
       <navigation/>
-    </div>
-
-  </header>
+    </v-app-bar>
 </template>
 
 <style scoped>
