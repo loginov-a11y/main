@@ -19,7 +19,6 @@ export function searchBaseCurrency(currList: Object) {
 }
 
 export function select(item: any) {
-    console.log('item',item)
     const observableCurren = useConversionVariableStore()
     let selectCurrency = '';
     if (typeof item === 'string') {

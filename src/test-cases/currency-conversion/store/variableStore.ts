@@ -10,8 +10,6 @@ export const useConversionVariableStore = defineStore('conversionVariableStore',
         baseCurrency = ref(''),
         currencyNameList = ref();
 
-
-
     return {
         currencyList,
         fullCurrencyList,

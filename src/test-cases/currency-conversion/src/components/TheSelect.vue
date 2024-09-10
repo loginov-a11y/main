@@ -18,6 +18,8 @@ watch(() => observableCurren.fullCurrencyList, () => {
         variant="outlined"
         density="compact"
         :width="150"
+        hide-details
+        class="pa-0 ma-0"
         >
     </v-select>
 </template>

@@ -1,8 +1,10 @@
 <script setup lang="ts">
 
-import {convert, searchBaseCurrency, toUpperCase} from "../../src/staticFunction";
+import {convert, searchBaseCurrency, select, toUpperCase} from "../../src/staticFunction";
 import {ref} from "vue";
 import {useConversionVariableStore} from "../../store/variableStore";
+import BaseInput from "~/src/test-cases/currency-conversion/src/components/BaseInput.vue";
+import BaseSelect from "~/src/test-cases/currency-conversion/src/components/BaseSelect.vue";
 
 const observableCurren = useConversionVariableStore(),
     selectList = ref({}),
@@ -31,32 +33,41 @@ const observableCurren = useConversionVariableStore(),
       <label for="select1">
         <strong>У меня есть</strong>
       </label>
-      <div class="convect-form__fun-block">
-        <select class="select" id="select1" v-model="selectOne">
-          <option
-              v-for="key in observableCurren.currencyNameList"
-              :value=key
-          >{{ toUpperCase(key)}}</option>
-        </select>
-        <input type="number" pattern="[0-9]*" @keyup="convert($event.target.value)">
-        <span>=</span>
-        <span>{{outputCurrency }}</span>
-      </div>
+      <v-sheet
+          class="d-flex justify-space-between"
+          :width="400"
+      >
+        <v-sheet>
+          <BaseSelect/>
+        </v-sheet>
+        <v-sheet>
+          <BaseInput/>
+        </v-sheet>
+        <v-sheet>
+          <span>=</span>
+          <span>{{outputCurrency }}</span>
+        </v-sheet>
+      </v-sheet>
     </div>
     <div class="convect-form__item">
       <label for="select2">
         <strong>Хочу приобрести</strong>
       </label>
-      <div class="convect-form__fun-block">
-        <select class="select" id="select2" v-model="selectTwo">
-          <option
-              v-for="key in observableCurren.currencyNameList"
-              :value=key>{{ toUpperCase(key)}}</option>
-        </select>
-        <input type="number" pattern="[0-9]*" @keyup="convert($event.target.value)">
-        <span>=</span>
-        <span>{{ outputCurrency }}</span>
-      </div>
+      <v-sheet
+          class="d-flex justify-space-between"
+          :width="400"
+      >
+        <v-sheet>
+          <BaseSelect/>
+        </v-sheet>
+        <v-sheet>
+          <BaseInput/>
+        </v-sheet>
+        <v-sheet>
+          <span>=</span>
+          <span>{{outputCurrency }}</span>
+        </v-sheet>
+      </v-sheet>
     </div>
   </form>
 </template>
