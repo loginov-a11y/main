@@ -31,6 +31,13 @@ export const NAV_ITEMS:Object = [
         h1: 'Моя Wiki по js'
     }
 ]
+export const BACKGROUND_LIST:Object = [
+    'Olive',
+    'DarkSeaGreen',
+    'SteelBlue',
+    'Navy',
+    'MistyRose'
+]
 export const BUTTON_STATUS_BASE:string = 'base'
 export const BUTTON_STATUS_ERROR:string = 'error'
 export const BUTTON_STATUS_SUCCESS:string = 'success'

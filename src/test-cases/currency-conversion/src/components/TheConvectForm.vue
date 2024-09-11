@@ -34,7 +34,7 @@ const observableCurren = useConversionVariableStore(),
         <strong>У меня есть</strong>
       </label>
       <v-sheet
-          class="d-flex justify-space-between"
+          class="d-flex justify-space-between align-center"
           :width="400"
       >
         <v-sheet>
@@ -54,7 +54,7 @@ const observableCurren = useConversionVariableStore(),
         <strong>Хочу приобрести</strong>
       </label>
       <v-sheet
-          class="d-flex justify-space-between"
+          class="d-flex justify-space-between align-center"
           :width="400"
       >
         <v-sheet>
@@ -82,12 +82,6 @@ const observableCurren = useConversionVariableStore(),
     display: block;
   }
 
-  input {
-    padding: 5px;
-    margin: 0 0 0 15px;
-    height: 32px;
-  }
-
   &__fun-block {
     display: flex;
     align-items: center;
@@ -96,27 +90,6 @@ const observableCurren = useConversionVariableStore(),
   span {
     padding: 0 0 0 10px;
   }
-}
-
-.btn {
-  height: 44px;
-  padding: 10px 20px 10px 20px;
-  border-radius: 100px;
-  border: 2px;
-  background: none;
-  cursor: pointer;
-  background: #f1f1f1;
-
-  &:hover {
-    background: #01A7FD;
-    color: #fff;
-  }
-}
-select{
-  width: 150px;
-  padding: 5px;
-  font-size: 16px;
-  cursor: pointer;
 }
 
 </style>

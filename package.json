@@ -14,6 +14,7 @@
     "@pinia/nuxt": "^0.5.1",
     "@types/vuelidate": "^0.7.21",
     "@vee-validate/nuxt": "^4.13.2",
+    "@yeger/vue-masonry-wall": "^5.0.15",
     "nuxt": "^3.12.4",
     "pinia": "^2.1.7",
     "vee-validate": "^4.13.2",

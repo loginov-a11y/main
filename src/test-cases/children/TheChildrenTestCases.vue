@@ -19,7 +19,7 @@ const
     childrenName = ref(""),
     childrenAge = ref("");
 (async function () {
-  if (process.client){
+  if (process.client) {
     varStore.childrenList = await childrenLocalStoreGet(LOCAL_STORE_NAME);
   }
 })();
