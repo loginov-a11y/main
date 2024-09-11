@@ -5,6 +5,7 @@ import { h1Search } from "~/src/functions";
 <template>
   <div class="pageContainer">
     <h1>{{h1Search(useRequestURL().pathname)}}</h1>
+    <h3>Учебный тестовый проект</h3>
   </div>
 
 </template>

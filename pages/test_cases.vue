@@ -20,7 +20,7 @@ import TheCurConversionTestCase from "~/src/test-cases/currency-conversion/TheCu
   </div>
   <div class="container">
     <details class="taskItem">
-      <summary class="btnAccordion">Добавление детей</summary>
+      <summary class="btnAccordion">Задача - написать функционал для добавления удаления сохранения списка с детьми</summary>
       <br>
       <div>
         <TheChildrenTestCases/>

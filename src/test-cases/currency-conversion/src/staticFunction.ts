@@ -30,10 +30,3 @@ export function select(item: any) {
     observableCurren.baseCurrency = toUpperCase(selectCurrency);
 }
 
-export function convert (currency = 0) {
-    console.log('currency',currency)
-    // const variableStore = useConversionVariableStore();
-    // if (currency && variableStore.selectTwo !== variableStore.selectOne) {
-    //     variableStore.outputCurrency.value = (currency / variableStore.currencyAll[`${variableStore.selectTwo}-${variableStore.selectOne}`]);
-    // }
-}

@@ -3,7 +3,7 @@ export const NAV_ITEMS:Object = [
     {
         page: '/',
         name: 'Главная',
-        h1: 'Главная'
+        h1: 'Учебный проект'
     },
     {
         page: '/js_ts_task',

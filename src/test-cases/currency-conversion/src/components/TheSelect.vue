@@ -4,15 +4,17 @@ import {watch, ref} from "vue";
 import {select} from "../staticFunction";
 
 const observableCurren = useConversionVariableStore(),
-    currencyName = ref();
-
+    currencyName = ref(),
+    selectBase = ref('');
 watch(() => observableCurren.fullCurrencyList, () => {
   currencyName.value = observableCurren.currencyNameList;
+  selectBase.value = observableCurren.baseCurrency
 }, {deep: true});
 
 </script>
 <template>
     <v-select
+        v-model="selectBase"
         @update:modelValue="select"
         :items="currencyName"
         variant="outlined"

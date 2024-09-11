@@ -5,7 +5,7 @@ import {useConversionVariableStore} from "./store/variableStore";
 import {watch, ref, onMounted} from "vue";
 import {toUpperCase} from "./src/staticFunction";
 import {startFunction} from "./src/mountFunction";
-import TheConvectForm from "./src/components/TheConvectForm.vue";
+
 
 const observableCurren = useConversionVariableStore(),
     baseCurrency = ref(''),
@@ -36,7 +36,6 @@ onMounted(() => {
         </div>
       </div>
     </div>
-    <TheConvectForm/>
   </div>
 
 </template>
