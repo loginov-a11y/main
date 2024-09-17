@@ -5,6 +5,7 @@ import {ref} from "vue";
 import {useVariableStore} from "~/store/variableStore";
 import BaseButton from "~/src/components/BaseButton.vue";
 import {Form, Field, ErrorMessage} from "vee-validate";
+import TheLoader from "~/src/components/TheLoader.vue";
 const variableStore = useVariableStore();
 
 const
@@ -22,7 +23,7 @@ const
       v-slot="{ errors }"
       :class="{'no-login': variableStore.authSend}"
   >
-    <div class="loader" v-if="variableStore.loader"></div>
+    <TheLoader/>
     <div
         :class="{'no-login__text': variableStore.authSend}"
         v-if="variableStore.authSend"
@@ -59,7 +60,10 @@ const
       />
       <ErrorMessage class="form__error-message" name="password"/>
     </label>
-    <BaseButton :status="variableStore.authSend">
+    <BaseButton
+        type="submit"
+        :status="variableStore.authSend"
+    >
       Авторизоваться
     </BaseButton>
   </Form>

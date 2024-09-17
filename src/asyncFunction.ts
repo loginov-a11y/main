@@ -6,7 +6,9 @@ export async function authorizationRequest(login: string, email: string, passwor
     const userStore = useUserStore();
     const varStore = useVariableStore();
     varStore.loader = true;
+    console.log('start1')
     setTimeout(() => {
+        console.log('start2')
         if (password === userStore.authInfo.password && login === userStore.authInfo.login) {
             localStoreSet({
                 login: login,
@@ -25,6 +27,7 @@ export async function authorizationRequest(login: string, email: string, passwor
         }
         varStore.loader = false
         setTimeout(() => {
+            console.log('start3')
             varStore.authSend = false;
         }, 3000)
 

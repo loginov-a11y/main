@@ -41,4 +41,8 @@ export const BACKGROUND_LIST:Object = [
 export const BUTTON_STATUS_BASE:string = 'base'
 export const BUTTON_STATUS_ERROR:string = 'error'
 export const BUTTON_STATUS_SUCCESS:string = 'success'
+export const INPUT_TYPE:Object = {
+    text: 'text',
+    number: 'number'
+}
 

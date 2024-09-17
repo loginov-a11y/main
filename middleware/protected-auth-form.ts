@@ -5,4 +5,5 @@ export default defineNuxtRouteMiddleware((to, from) => {
         const status  = await localStoreGet('user');
         if (status.authStatus === 'successfully') return navigateTo("/admin");
     })();
+
 })

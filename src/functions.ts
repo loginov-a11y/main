@@ -1,8 +1,8 @@
-import {useVariableStore} from "~/store/variableStore";
+import {useUserStore} from "~/store/UserStore";
 import { NAV_ITEMS } from "~/src/constant";
 
 export function LogOut(localStoreName: string) {
-    const varStore = useVariableStore();
+    const varStore = useUserStore();
     varStore.user.authStatus = '';
     localStorage.removeItem(localStoreName);
     return navigateTo("/login");

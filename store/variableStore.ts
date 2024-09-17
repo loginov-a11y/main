@@ -7,20 +7,15 @@ export const useVariableStore = defineStore('variableStore',   () => {
     const
         authSend = ref(false),
         loader = ref(false),
-        user = ref({
-            login:'',
-            password:'',
-            email:'',
-            authStatus: ''
-        }),
+        pageLoader = ref(true),
         storeNum = ref(),
         urlPage = ref('');
 
     return {
         authSend,
         loader,
-        user,
         storeNum,
-        urlPage
+        urlPage,
+        pageLoader
     }
 })

@@ -3,7 +3,9 @@ import { ref } from 'vue';
 import {useTrainingStore} from '~/store/TrainingPinia';
 import { h1Search } from "~/src/functions";
 import { jsonLocalGet } from "~/src/asyncFunction";
-
+import BaseButton from "~/src/components/BaseButton.vue";
+import BaseInput from "~/src/components/BaseInput.vue";
+import { INPUT_TYPE } from "~/src/constant";
 
 const trainingStore = useTrainingStore();
 const testJson = ref();
@@ -32,12 +34,22 @@ const getWidgets = async () => {
         )
       </span>
      </h3>
-     <div class="calk">
-       <input type="number" v-model="additionPlusOnce">
-       <span>+</span>
-       <input type="number" v-model="additionPlusTwo">
-       <button type="button" @click="trainingStore.addition(additionPlusOnce,additionPlusTwo)">=</button>
-       <span>{{trainingStore.additionSum}}</span>
+     <div class="align-center d-inline-flex">
+       <BaseInput
+           v-model="additionPlusOnce"
+           :inputType="INPUT_TYPE.number"
+       />
+       <div class="ml-4 mr-4">+</div>
+       <BaseInput
+           v-model="additionPlusTwo"
+           :inputType="INPUT_TYPE.number"
+       />
+       <BaseButton
+           @click="trainingStore.addition(additionPlusOnce,additionPlusTwo)"
+           class="ml-4 mr-4"
+       >=
+       </BaseButton>
+       <div>{{trainingStore.additionSum}}</div>
      </div>
    </div>
    <div>
@@ -50,12 +62,22 @@ const getWidgets = async () => {
         )
       </span>
      </h3>
-     <div class="calk">
-       <input type="number" v-model="additionMulOnce">
-       <span>*</span>
-       <input type="number" v-model="additionMulTwo">
-       <button type="button" @click="trainingStore.multiplication(additionMulOnce,additionMulTwo)">=</button>
-       <span>{{trainingStore.additionMultiplier}}</span>
+     <div class="align-center d-inline-flex">
+       <BaseInput
+           v-model="additionMulOnce"
+           :inputType="INPUT_TYPE.number"
+       />
+       <div class="ml-4 mr-4">*</div>
+       <BaseInput
+           v-model="additionMulTwo"
+           :inputType="INPUT_TYPE.number"
+       />
+       <BaseButton
+           @click="trainingStore.multiplication(additionMulOnce,additionMulTwo)"
+           class="ml-4 mr-4"
+       >=
+       </BaseButton>
+       <div>{{trainingStore.additionMultiplier}}</div>
      </div>
      <div class="importTest">
        <button @click="getWidgets()">import start</button>
@@ -72,34 +94,7 @@ const getWidgets = async () => {
 
 
 <style scoped>
-  .calk{
-    display: flex;
-    flex-wrap: wrap;
-    margin: 0 0 20px 0;
-    width: 300px;
-  }
-  .calk h3{
-    width: 100%;
-  }
-  .calk input{
-    width: 50px;
-  }
-  .calk button{
-    cursor: pointer;
-    margin: 0 5px;
-  }
-  .calk span{
-    display: block;
-    align-items: center;
-    min-width: 20px;
-    height: 20px;
-    text-align: center;
-    padding: 0 5px;
-    line-height: 20px;
-  }
-  .calk span:last-of-type{
-    border: solid 1px #000;
-  }
+
   .importTest{
     border: solid 2px #000;
     padding: 10px;

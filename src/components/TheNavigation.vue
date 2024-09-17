@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import {useVariableStore} from "~/store/variableStore";
-const loginStore = useVariableStore();
+import {useUserStore} from "~/store/UserStore";
+const loginStore = useUserStore();
 import {NAV_ITEMS} from "~/src/constant";
 </script>
 <template>

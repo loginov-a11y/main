@@ -11,8 +11,13 @@ export const useTrainingStore = defineStore('useTrainingStore', () => {
     let watchNumber = ref(0)
     const varStore = useVariableStore()
 
-    const addition = (one = 0,two = 0) => {additionSum.value =  one + two}
-    const multiplication = (one = 0,two = 0) => {additionMultiplier.value =  one * two}
+    const addition = (one = 0,two = 0) => {
+        console.log(typeof one, typeof two)
+        additionSum.value =  one + two
+    }
+    const multiplication = (one = 0,two = 0) => {
+        additionMultiplier.value =  one * two
+    }
 
 
 
