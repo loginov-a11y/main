@@ -1,21 +1,22 @@
 <script setup lang="ts">
-import {ref,onMounted} from "vue";
-import { randomBackground } from "~/src/functions";
-
+import {ref, onMounted} from "vue";
 const props = defineProps({
   tileText: {
-    type:String
+    type: String
+  },
+  styleBackground: {
+    type: Array
   }
 });
 
-let tileStyle = {
+let tileStyle = ref({
   background: '',
   color: ''
-};
+});
+
 onMounted(() => {
-  const backgroundSet = randomBackground();
-  tileStyle.background = backgroundSet[0]
-  tileStyle.color = backgroundSet[1]
+  tileStyle.value.background = props.styleBackground[0]
+  tileStyle.value.color = props.styleBackground[1]
 })
 
 </script>

@@ -1,5 +1,5 @@
 <script setup>
-import { h1Search } from '~/src/functions'
+import {h1Search, randomBackground} from '~/src/functions'
 import {getLiveTaskJson} from "~/src/liveTaskGetJson";
 import {ref} from "vue";
 import MasonryWall from '@yeger/vue-masonry-wall';
@@ -11,6 +11,10 @@ const taskList = await getLiveTaskJson();
 
 
 const searchTask = (taskId) => {
+
+  if(taskList.default[taskId][1].length === 2){
+    //console.log('taskList.default[taskId]',taskList.default[taskId][1])
+  }
   taskCode.value = taskList.default[taskId][1][0][1]
   taskTitle.value = taskList.default[taskId][0]
 }
@@ -32,6 +36,7 @@ const searchTask = (taskId) => {
                 v-bind="activatorProps"
                 :key="item"
                 :tile-text="item[0]"
+                :styleBackground = randomBackground()
             />
           </template>
         </masonry-wall>
