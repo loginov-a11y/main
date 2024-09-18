@@ -1,10 +1,15 @@
 <script setup lang="ts">
+
+
 const props = defineProps({
   codeTitle: {
     type: String
   },
   codeTask: {
-    type: Array
+    type: String
+  },
+  padding: {
+    type: Boolean
   }
 });
 
@@ -20,17 +25,18 @@ const props = defineProps({
               {{props.codeTask}}
             </pre>
     </v-card-text>
-    <v-card-actions>
-      <v-spacer></v-spacer>
-      <v-btn
-          class="position-absolute top-0 right-0"
-          height="50px"
-          width="50px"
-          text="&#x2716;"
-          density="compact"
-          @click="$emit('closed')"
-      ></v-btn>
-    </v-card-actions>
+    <div
+        v-if="props.padding"
+        class="pb-6"
+    ></div>
+    <v-btn
+        class="position-absolute top-0 right-0"
+        height="50px"
+        width="50px"
+        text="&#x2716;"
+        density="compact"
+        @click="$emit('closed')"
+    ></v-btn>
   </v-card>
 </template>
 

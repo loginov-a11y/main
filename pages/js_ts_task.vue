@@ -53,6 +53,8 @@ const searchTask = (taskId) => {
             <TheTileModalContentComponent
                 :code-task="item"
                 :code-title="taskTitle"
+                :padding="true"
+                @closed.once="isActive.value = false"
             />
           </v-carousel-item>
         </v-carousel>
@@ -60,6 +62,7 @@ const searchTask = (taskId) => {
             v-else
             :code-task="taskCode[0]"
             :code-title="taskTitle"
+            :padding="false"
             @closed.once="isActive.value = false"
         />
       </template>
