@@ -60,7 +60,7 @@ const searchTask = (taskId) => {
             v-else
             :code-task="taskCode[0]"
             :code-title="taskTitle"
-            @closed-Modal-Event.once="isActive.value = false"
+            @closed.once="isActive.value = false"
         />
       </template>
     </v-dialog>

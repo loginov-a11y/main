@@ -28,7 +28,7 @@ const props = defineProps({
           width="50px"
           text="&#x2716;"
           density="compact"
-          @click="$emit('closedModalEvent')"
+          @click="$emit('closed')"
       ></v-btn>
     </v-card-actions>
   </v-card>
