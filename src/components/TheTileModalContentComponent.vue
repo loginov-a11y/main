@@ -1,6 +1,5 @@
 <script setup lang="ts">
 
-
 const props = defineProps({
   codeTitle: {
     type: String
@@ -21,13 +20,11 @@ const props = defineProps({
         class="card-title mr-16"
     >{{props.codeTitle}}</h3>
     <v-card-text>
-            <pre>
-              {{props.codeTask}}
-            </pre>
+            <pre>{{props.codeTask}}</pre>
     </v-card-text>
     <div
         v-if="props.padding"
-        class="pb-6"
+        class="pb-13"
     ></div>
     <v-btn
         class="position-absolute top-0 right-0"

@@ -21,15 +21,3 @@ const props = defineProps({
   </v-btn>
 </template>
 
-<style scoped lang="scss">
-.button-neutral {
-  margin-top: 0;
-  background: #fff;
-  cursor: pointer;
-  border-radius: 5px;
-
-  &:hover {
-    background: #e9e9e9;
-  }
-}
-</style>
