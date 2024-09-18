@@ -3,7 +3,8 @@ import {h1Search, randomBackground} from '~/src/functions'
 import {getLiveTaskJson} from "~/src/liveTaskGetJson";
 import {ref} from "vue";
 import MasonryWall from '@yeger/vue-masonry-wall';
-import TaskTileComponent from "~/src/components/TaskTileComponent.vue";
+import TaskTileComponent from "~/src/components/TaskTilePreComponent.vue";
+import TheTileModalContentComponent from "~/src/components/TheTileModalContentComponent.vue";
 const taskCode = ref()
 const taskTitle = ref('');
 const taskLength = ref('');
@@ -15,7 +16,6 @@ const searchTask = (taskId) => {
   taskLength.value = taskList.default[taskId][1].length
   taskCode.value = taskList.default[taskId][1]
   taskTitle.value = taskList.default[taskId][0]
-  console.log('taskCode',taskCode.value)
 }
 
 
@@ -42,6 +42,7 @@ const searchTask = (taskId) => {
       </template>
       <template v-slot:default="{ isActive }">
         <v-carousel
+            v-if="taskCode.length > 1"
             :show-arrows="false"
             height="auto"
             >
@@ -49,30 +50,18 @@ const searchTask = (taskId) => {
               cover
               v-for="item of taskCode"
           >
-            <v-card>
-              <h3
-                  class="card-title mr-16"
-              >{{taskTitle}}</h3>
-              <v-card-text>
-            <pre>
-              {{item}}
-            </pre>
-              </v-card-text>
-              <v-card-actions>
-                <v-spacer></v-spacer>
-                <v-btn
-                    class="position-absolute top-0 right-0"
-                    height="50px"
-                    width="50px"
-                    text="&#x2716;"
-                    density="compact"
-                    @click="isActive.value = false"
-                ></v-btn>
-              </v-card-actions>
-            </v-card>
+            <TheTileModalContentComponent
+                :code-task="item"
+                :code-title="taskTitle"
+            />
           </v-carousel-item>
         </v-carousel>
-
+        <TheTileModalContentComponent
+            v-else
+            :code-task="taskCode[0]"
+            :code-title="taskTitle"
+            @closed-Modal-Event.once="isActive.value = false"
+        />
       </template>
     </v-dialog>
   </div>
