@@ -6,17 +6,16 @@ import MasonryWall from '@yeger/vue-masonry-wall';
 import TaskTileComponent from "~/src/components/TaskTileComponent.vue";
 const taskCode = ref()
 const taskTitle = ref('');
+const taskLength = ref('');
 const taskList = await getLiveTaskJson();
 
 
 
 const searchTask = (taskId) => {
-
-  if(taskList.default[taskId][1].length === 2){
-    //console.log('taskList.default[taskId]',taskList.default[taskId][1])
-  }
-  taskCode.value = taskList.default[taskId][1][0][1]
+  taskLength.value = taskList.default[taskId][1].length
+  taskCode.value = taskList.default[taskId][1]
   taskTitle.value = taskList.default[taskId][0]
+  console.log('taskCode',taskCode.value)
 }
 
 
@@ -42,21 +41,38 @@ const searchTask = (taskId) => {
         </masonry-wall>
       </template>
       <template v-slot:default="{ isActive }">
-        <v-card>
-          <h3 class="card-title">{{taskTitle}}</h3>
-          <v-card-text>
+        <v-carousel
+            :show-arrows="false"
+            height="auto"
+            >
+          <v-carousel-item
+              cover
+              v-for="item of taskCode"
+          >
+            <v-card>
+              <h3
+                  class="card-title mr-16"
+              >{{taskTitle}}</h3>
+              <v-card-text>
             <pre>
-              {{taskCode}}
+              {{item}}
             </pre>
-          </v-card-text>
-          <v-card-actions>
-            <v-spacer></v-spacer>
-            <v-btn
-                text="Закрыть"
-                @click="isActive.value = false"
-            ></v-btn>
-          </v-card-actions>
-        </v-card>
+              </v-card-text>
+              <v-card-actions>
+                <v-spacer></v-spacer>
+                <v-btn
+                    class="position-absolute top-0 right-0"
+                    height="50px"
+                    width="50px"
+                    text="&#x2716;"
+                    density="compact"
+                    @click="isActive.value = false"
+                ></v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-carousel-item>
+        </v-carousel>
+
       </template>
     </v-dialog>
   </div>
