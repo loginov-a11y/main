@@ -1,3 +1,3 @@
-export async function getLiveTaskJson(){
+export async function getLiveTaskJson() {
     return await import('assets/json/liveTask.json')
 }

@@ -1,5 +1,4 @@
-
-export const NAV_ITEMS:Object = [
+export const NAV_ITEMS: Object = [
     {
         page: '/',
         name: 'Главная',
@@ -16,9 +15,9 @@ export const NAV_ITEMS:Object = [
         h1: 'Базовые задачи по разному функционалу'
     },
     {
-        page: '/trainingApi',
-        name: 'Задачи с Api',
-        h1: 'Задачи с Api и асинхронностью'
+        page: '/itKitchen',
+        name: 'IT кухня',
+        h1: 'Видео сборник разных рецептов'
     },
     {
         page: '/test_cases',
@@ -31,17 +30,18 @@ export const NAV_ITEMS:Object = [
         h1: 'Моя Wiki по js'
     }
 ]
-export const BACKGROUND_LIST:Object = [
+export const nameLocalStoreSetUser = 'user';
+export const BACKGROUND_LIST: Object = [
     'Olive',
     'DarkSeaGreen',
     'SteelBlue',
     'Navy',
     'MistyRose'
 ]
-export const BUTTON_STATUS_BASE:string = 'base'
-export const BUTTON_STATUS_ERROR:string = 'error'
-export const BUTTON_STATUS_SUCCESS:string = 'success'
-export const INPUT_TYPE:Object = {
+export const BUTTON_STATUS_BASE: string = 'base'
+export const BUTTON_STATUS_ERROR: string = 'error'
+export const BUTTON_STATUS_SUCCESS: string = 'success'
+export const INPUT_TYPE: Object = {
     text: 'text',
     number: 'number'
 }

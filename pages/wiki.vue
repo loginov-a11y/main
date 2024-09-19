@@ -1,32 +1,39 @@
 <script setup lang="ts">
-import { h1Search } from "~/src/functions";
+import {h1Search} from "~/src/functions";
 </script>
 <template>
   <div class="pageContainer">
-    <h1>{{h1Search(useRequestURL().pathname)}}</h1>
+    <h1>{{ h1Search(useRequestURL().pathname) }}</h1>
     <div>
       <div class="wiki">
-        <div class="wiki__item">сделать заглавные буквы строчными -> <span class="wiki__fun">.toLowerCase()</span><span class="wiki__title">&#10071;</span></div>
-        <div class="wiki__item">Убрать пробелы -> <span class="wiki__fun">.replaceAll(' ', '')</span><span class="wiki__title">&#10071;</span></div>
-        <div class="wiki__item">Убрать все символы кроме букв и чисел -> <span class="wiki__fun">.replace(/[^\w\s]|_/g, "")</span><span class="wiki__title">&#10071;</span></div>
-        <div class="wiki__item">преобразовать строку в массив -> <span class="wiki__fun">.split('')</span><span class="wiki__title">&#10071;</span></div>
-        <div class="wiki__item">Развернуть массив -> <span class="wiki__fun">.reverse()</span><span class="wiki__title">&#10071;</span></div>
+        <div class="wiki__item">сделать заглавные буквы строчными -> <span class="wiki__fun">.toLowerCase()</span><span
+            class="wiki__title">&#10071;</span></div>
+        <div class="wiki__item">Убрать пробелы -> <span class="wiki__fun">.replaceAll(' ', '')</span><span
+            class="wiki__title">&#10071;</span></div>
+        <div class="wiki__item">Убрать все символы кроме букв и чисел -> <span class="wiki__fun">.replace(/[^\w\s]|_/g, "")</span><span
+            class="wiki__title">&#10071;</span></div>
+        <div class="wiki__item">преобразовать строку в массив -> <span class="wiki__fun">.split('')</span><span
+            class="wiki__title">&#10071;</span></div>
+        <div class="wiki__item">Развернуть массив -> <span class="wiki__fun">.reverse()</span><span class="wiki__title">&#10071;</span>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
-.wiki{
-  &__item{
-    margin:5px 0;
+.wiki {
+  &__item {
+    margin: 5px 0;
     font-size: 14px;
   }
-  &__fun{
+
+  &__fun {
     color: cadetblue;
     font-size: 16px;
   }
-  &__title{
+
+  &__title {
     width: 20px;
     height: 20px;
     display: inline-block;

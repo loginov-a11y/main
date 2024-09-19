@@ -5,11 +5,11 @@ import {ref} from "vue";
 import MasonryWall from '@yeger/vue-masonry-wall';
 import TaskTileComponent from "~/src/components/TaskTilePreComponent.vue";
 import TheTileModalContentComponent from "~/src/components/TheTileModalContentComponent.vue";
+
 const taskCode = ref()
 const taskTitle = ref('');
 const taskLength = ref('');
 const taskList = await getLiveTaskJson();
-
 
 
 const searchTask = (taskId) => {
@@ -22,7 +22,7 @@ const searchTask = (taskId) => {
 </script>
 <template>
   <div class="pageContainer">
-    <h1>{{h1Search(useRequestURL().pathname)}}</h1>
+    <h1>{{ h1Search(useRequestURL().pathname) }}</h1>
     <v-dialog
         width="fit-content"
     >
@@ -35,7 +35,7 @@ const searchTask = (taskId) => {
                 v-bind="activatorProps"
                 :key="item"
                 :tile-text="item[0]"
-                :styleBackground = randomBackground()
+                :styleBackground=randomBackground()
             />
           </template>
         </masonry-wall>
@@ -45,7 +45,7 @@ const searchTask = (taskId) => {
             v-if="taskCode.length > 1"
             :show-arrows="false"
             height="auto"
-            >
+        >
           <v-carousel-item
               cover
               v-for="item of taskCode"
@@ -71,19 +71,21 @@ const searchTask = (taskId) => {
 </template>
 
 <style lang="scss">
-.tile{
+.tile {
   cursor: pointer;
-  &:hover{
-    strong{
+
+  &:hover {
+    strong {
       color: #fff;
     }
   }
-  strong{
+
+  strong {
     transition: 0.1s;
   }
 }
 
-.card-title{
+.card-title {
   display: block;
   flex: none;
   font-size: 1.25rem;
@@ -95,7 +97,8 @@ const searchTask = (taskId) => {
   padding: 0.5rem 1rem;
   text-transform: none;
 }
-pre{
+
+pre {
   font-size: 14px;
   color: black;
   font-weight: 900;

@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { h1Search } from "~/src/functions";
+import {h1Search} from "~/src/functions";
 import TheChildrenTestCases from "~/src/test-cases/children/TheChildrenTestCases.vue";
 import TheCurConversionTestCase from "~/src/test-cases/currency-conversion/TheCurConversionTestCase.vue";
 </script>
 
 <template>
   <div class="pageContainer">
-    <h1>{{h1Search(useRequestURL().pathname)}}</h1>
+    <h1>{{ h1Search(useRequestURL().pathname) }}</h1>
   </div>
   <div class="container">
     <details class="taskItem">
@@ -20,7 +20,8 @@ import TheCurConversionTestCase from "~/src/test-cases/currency-conversion/TheCu
   </div>
   <div class="container">
     <details class="taskItem">
-      <summary class="btnAccordion">Задача - написать функционал для добавления удаления сохранения списка с детьми</summary>
+      <summary class="btnAccordion">Задача - написать функционал для добавления удаления сохранения списка с детьми
+      </summary>
       <br>
       <div>
         <TheChildrenTestCases/>
@@ -28,8 +29,6 @@ import TheCurConversionTestCase from "~/src/test-cases/currency-conversion/TheCu
     </details>
     <br>
   </div>
-
-
 
 
 </template>

@@ -1,16 +1,15 @@
 import {useUserStore} from "~/store/UserStore";
 import {useVariableStore} from "~/store/variableStore";
 import {localStoreSet} from "~/src/functions";
+import {nameLocalStoreSetUser} from "~/src/constant";
 
 export async function authorizationRequest(login: string, email: string, password: string) {
     const userStore = useUserStore();
     const varStore = useVariableStore();
     varStore.loader = true;
-    console.log('start1')
     setTimeout(() => {
-        console.log('start2')
         if (password === userStore.authInfo.password && login === userStore.authInfo.login) {
-            localStoreSet({
+            localStoreSet(nameLocalStoreSetUser,{
                 login: login,
                 email: email,
                 password: password,
@@ -27,7 +26,6 @@ export async function authorizationRequest(login: string, email: string, passwor
         }
         varStore.loader = false
         setTimeout(() => {
-            console.log('start3')
             varStore.authSend = false;
         }, 3000)
 
@@ -37,6 +35,11 @@ export async function authorizationRequest(login: string, email: string, passwor
 export async function localStoreGet(name: string) {
     return await JSON.parse(localStorage.getItem(name) || '{}')
 }
-export  async function jsonLocalGet(){
+
+export async function jsonLocalGet() {
     return await import('assets/json/test.json')
+}
+
+export async function urlClear(param:string = '') {
+    navigateTo("/")
 }

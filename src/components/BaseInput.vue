@@ -1,7 +1,13 @@
 <script setup lang="ts">
 import {ref} from "vue";
+
 const props = defineProps({
-  inputType: String
+  inputType: {
+    type: String
+  },
+  value: {
+    type: String
+  }
 });
 let value = ref()
 
@@ -28,6 +34,7 @@ let value = ref()
       class="pa-0 ma-0"
       :width="150"
       :type=props.inputType
+      :placeholder="props.value"
   />
 </template>
 

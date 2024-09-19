@@ -9,7 +9,7 @@
 </template>
 
 <style scoped lang="scss">
-.shadow{
+.shadow {
   position: fixed;
   width: 100%;
   height: 100%;

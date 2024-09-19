@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import {useVariableStore} from "~/store/variableStore";
+
 const variableStore = useVariableStore();
 </script>
 
