@@ -22,10 +22,10 @@ export async function authorizationRequest(login: string, email: string, passwor
             varStore.formStatusLoader = false
             return navigateTo("/admin");
         } else {
-            varStore.authSend = true
+            userStore.authSend = true
         }
         setTimeout(() => {
-            varStore.authSend = false;
+            userStore.authSend = false;
         }, 3000)
 
     }, 3000)

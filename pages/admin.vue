@@ -3,7 +3,7 @@ import {definePageMeta} from "#imports";
 import {LogOut} from "~/src/functions";
 import {localStoreDelete} from "~/src/storageFunction";
 import BaseButton from "~/src/components/BaseButton.vue";
-
+import {onMounted} from "vue";
 onMounted(() => {
   definePageMeta({
     middleware: "protected-admin"
