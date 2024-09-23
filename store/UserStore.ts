@@ -13,9 +13,11 @@ export const useUserStore = defineStore('userStore', () => {
             password: '',
             email: '',
             authStatus: ''
-        })
+        }),
+        authSend = ref(false)
     return {
         authInfo,
-        user
+        user,
+        authSend
     }
 })

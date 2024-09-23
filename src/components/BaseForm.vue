@@ -2,12 +2,12 @@
 import {authorizationRequest} from "~/src/userAuthorizationRequest";
 import {schemaVeeValidate} from "~/src/formValidate";
 import {ref} from "vue";
-import {useVariableStore} from "~/store/variableStore";
 import BaseButton from "~/src/components/BaseButton.vue";
 import {Form, Field, ErrorMessage} from "vee-validate";
 import TheLoader from "~/src/components/TheLoader.vue";
+import {useUserStore} from "~/store/UserStore";
 
-const variableStore = useVariableStore();
+const userStore = useUserStore();
 
 const
     login = ref(""),
@@ -22,12 +22,12 @@ const
       @submit="authorizationRequest(login,email,password)"
       :validation-schema="schemaVeeValidate"
       v-slot="{ errors }"
-      :class="{'no-login': variableStore.authSend}"
+      :class="{'no-login': userStore.authSend}"
   >
     <TheLoader/>
     <div
-        :class="{'no-login__text': variableStore.authSend}"
-        v-if="variableStore.authSend"
+        :class="{'no-login__text': userStore.authSend}"
+        v-if="userStore.authSend"
     >
       Авторизация не прошла Проверьте данные
     </div>
@@ -63,7 +63,7 @@ const
     </label>
     <BaseButton
         type="submit"
-        :status="variableStore.authSend"
+        :status="userStore.authSend"
     >
       Авторизоваться
     </BaseButton>
@@ -106,19 +106,6 @@ const
       color: red;
     }
   }
-}
-
-.loader {
-  position: absolute;
-  left: 0;
-  top: 0;
-  right: 0;
-  width: 200px;
-  z-index: 0;
-  background: url("~/assets/images/loader.gif") no-repeat center;
-  height: 28px;
-  background-size: 100%;
-  margin: auto;
 }
 
 .no-login {

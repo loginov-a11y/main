@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import {useUserStore} from "~/store/UserStore";
 
-const loginStore = useUserStore();
+const userStore = useUserStore();
 import {NAV_ITEMS} from "~/src/constant";
 </script>
 <template>
@@ -12,8 +12,8 @@ import {NAV_ITEMS} from "~/src/constant";
         :key="item.page"
     >{{ item.name }}
     </NuxtLink>
-    <NuxtLink v-if="!loginStore.user.authStatus" to="/login">Авторизация</NuxtLink>
-    <NuxtLink v-if="loginStore.user.authStatus" to="/admin">Админка</NuxtLink>
+    <NuxtLink v-if="!userStore.user.authStatus" to="/login">Авторизация</NuxtLink>
+    <NuxtLink v-if="userStore.user.authStatus" to="/admin">Админка</NuxtLink>
   </nav>
 </template>
 

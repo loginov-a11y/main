@@ -1,14 +1,12 @@
 import {localStoreGet} from "~/src/storageFunction";
 import {useUserStore} from "~/store/UserStore";
-import {useVariableStore} from "~/store/variableStore";
 import {hrScript} from "~/src/hrScript";
-import { getCookies } from "~/src/cookiesFunction";
-const loadStore = useVariableStore();
+import {getCookies} from "~/src/cookiesFunction";
+
 const userStore = useUserStore();
 
 export async function initFunction() {
     userStore.user = await localStoreGet('user');
-    loadStore.pageLoader = false;
     const route = useRoute();
     if (route.query.hh === null || getCookies('hh')) new hrScript();
 }

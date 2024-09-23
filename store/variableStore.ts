@@ -4,17 +4,9 @@ import {ref} from "vue";
 
 export const useVariableStore = defineStore('variableStore', () => {
     const
-        authSend = ref(false),
-        loader = ref(false),
-        pageLoader = ref(true),
-        storeNum = ref(),
-        urlPage = ref('');
+        formStatusLoader = ref(false)
 
     return {
-        authSend,
-        loader,
-        storeNum,
-        urlPage,
-        pageLoader
+        formStatusLoader,
     }
 })

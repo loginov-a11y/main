@@ -2,10 +2,11 @@
 import {useVariableStore} from "~/store/variableStore";
 
 const variableStore = useVariableStore();
+
 </script>
 
 <template>
-  <div class="loader" v-if="variableStore.loader"></div>
+  <div class="loader" v-if="variableStore.formStatusLoader"></div>
 </template>
 
 <style scoped lang="scss">

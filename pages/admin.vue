@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import {definePageMeta} from "#imports";
 import {LogOut} from "~/src/functions";
+import {localStoreDelete} from "~/src/storageFunction";
+import BaseButton from "~/src/components/BaseButton.vue";
 
 onMounted(() => {
   definePageMeta({
@@ -12,7 +14,11 @@ onMounted(() => {
 <template>
   <div class="pageContainer">
     <h1>Админка</h1>
-    <button @click="LogOut('user')">разадминится</button>
+    <BaseButton
+        @click="LogOut();localStoreDelete('user')"
+    >
+      Разлогинится
+    </BaseButton>
   </div>
 </template>
 <style scoped></style>

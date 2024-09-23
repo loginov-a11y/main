@@ -8,7 +8,9 @@ const props = defineProps({
 
 </script>
 <template>
-  <v-carousel>
+  <v-carousel
+
+  >
     <v-carousel-item
         cover
         v-for="item of props.sliderList"
@@ -19,5 +21,7 @@ const props = defineProps({
 </template>
 
 <style scoped lang="scss">
-
+.v-carousel__controls{
+  display: none !important;
+}
 </style>

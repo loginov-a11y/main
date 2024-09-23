@@ -43,6 +43,7 @@ const taskCode = ref(),
             :show-arrows="false"
             height="auto"
             :slider-list="taskCode"
+            :test-f="hide-delimiters"
         >
           <template v-slot:default="slotProps">
             <TheTileModalContentComponent

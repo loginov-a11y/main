@@ -19,7 +19,7 @@ const hrStore = useHrStore();
   </v-footer>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 footer {
   height: 60px;
   background-color: #f5f5f5;
@@ -29,7 +29,4 @@ footer {
   width: 100%;
 }
 
-.hh {
-
-}
 </style>

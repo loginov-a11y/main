@@ -4,6 +4,7 @@ import {INPUT_TYPE} from "~/src/constant";
 import {ref} from "vue";
 import BaseInput from "~/src/components/BaseInput.vue";
 import BaseButton from "~/src/components/BaseButton.vue";
+
 const
     additionMulOnce = ref(),
     additionMulTwo = ref(),
