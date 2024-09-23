@@ -1,28 +1,33 @@
-<script setup>
-import {h1Search, randomBackground} from '~/src/functions'
+<script setup lang="ts">
+import {randomBackground} from '~/src/functions'
 import {getLiveTaskJson} from "~/src/liveTaskGetJson";
 import {ref} from "vue";
 import MasonryWall from '@yeger/vue-masonry-wall';
 import TaskTileComponent from "~/src/components/TaskTilePreComponent.vue";
 import TheTileModalContentComponent from "~/src/components/TheTileModalContentComponent.vue";
+import BaseH1 from "~/src/components/BaseH1.vue";
 
+
+const taskPresentation = ref({
+  taskCode:Object,
+  taskTitle:String
+})
 const taskCode = ref()
-const taskTitle = ref('');
-const taskLength = ref('');
+const taskTitle = ref();
 const taskList = await getLiveTaskJson();
 
 
-const searchTask = (taskId) => {
-  taskLength.value = taskList.default[taskId][1].length
+const searchTask = (taskId:number) => {
   taskCode.value = taskList.default[taskId][1]
   taskTitle.value = taskList.default[taskId][0]
 }
 
 
+
 </script>
 <template>
   <div class="pageContainer">
-    <h1>{{ h1Search(useRequestURL().pathname) }}</h1>
+    <BaseH1/>
     <v-dialog
         width="fit-content"
     >

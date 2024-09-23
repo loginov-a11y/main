@@ -1,7 +1,8 @@
 import { useVariableStore } from "~/store/variableStore";
-import {getCookies, localStoreSet, setCookies} from "~/src/functions";
+import {getCookies, setCookies} from "~/src/cookiesFunction";
+import {localStoreSet} from "~/src/storageFunction";
 import {useHrStore} from "~/store/HrStore";
-import { localStoreGet } from "~/src/asyncFunction";
+import { localStoreGet } from "~/src/storageFunction";
 
 const loadStore = useVariableStore();
 const hrStore = useHrStore();

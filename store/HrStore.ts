@@ -3,7 +3,7 @@ import {ref} from "vue";
 
 export const useHrStore = defineStore('hrStore', () => {
     const hrName = ref(''),
-        hrWelcomeModal = ref(true),
+        hrWelcomeModal = ref(false),
         hrManager = ref()
     return {
         hrName,

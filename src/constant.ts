@@ -1,4 +1,4 @@
-export const NAV_ITEMS: Object = [
+export const NAV_ITEMS = [
     {
         page: '/',
         name: 'Главная',

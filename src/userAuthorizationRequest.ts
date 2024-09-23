@@ -1,6 +1,6 @@
 import {useUserStore} from "~/store/UserStore";
 import {useVariableStore} from "~/store/variableStore";
-import {localStoreSet} from "~/src/functions";
+import {localStoreSet} from "~/src/storageFunction";
 import {nameLocalStoreSetUser} from "~/src/constant";
 
 export async function authorizationRequest(login: string, email: string, password: string) {
@@ -30,16 +30,4 @@ export async function authorizationRequest(login: string, email: string, passwor
         }, 3000)
 
     }, 3000)
-}
-
-export async function localStoreGet(name: string) {
-    return await JSON.parse(localStorage.getItem(name) || '{}')
-}
-
-export async function jsonLocalGet() {
-    return await import('assets/json/test.json')
-}
-
-export async function urlClear(param:string = '') {
-    navigateTo("/")
 }

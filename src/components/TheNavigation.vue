@@ -19,6 +19,7 @@ import {NAV_ITEMS} from "~/src/constant";
 
 
 <style scoped lang="scss">
+
 a {
   text-decoration: none;
   font-size: 16px;

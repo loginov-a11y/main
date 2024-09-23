@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import {h1Search} from "~/src/functions";
+import BaseH1 from "~/src/components/BaseH1.vue";
 </script>
 
 <template>
   <div class="pageContainer">
-    <h1>{{ h1Search(useRequestURL().pathname) }}</h1>
+    <BaseH1/>
   </div>
 </template>
 

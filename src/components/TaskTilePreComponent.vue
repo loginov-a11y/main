@@ -6,7 +6,7 @@ const props = defineProps({
     type: String
   },
   styleBackground: {
-    type: Array
+    type: []
   }
 });
 

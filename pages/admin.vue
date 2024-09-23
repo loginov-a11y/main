@@ -7,6 +7,7 @@ onMounted(() => {
     middleware: "protected-admin"
   })
 })
+
 </script>
 <template>
   <div class="pageContainer">

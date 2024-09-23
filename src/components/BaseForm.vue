@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {authorizationRequest} from "~/src/asyncFunction";
+import {authorizationRequest} from "~/src/userAuthorizationRequest";
 import {schemaVeeValidate} from "~/src/formValidate";
 import {ref} from "vue";
 import {useVariableStore} from "~/store/variableStore";
