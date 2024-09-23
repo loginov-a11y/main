@@ -1,5 +1,4 @@
 <script setup lang="ts">
-
 import {h1Search} from "~/src/functions";
 </script>
 

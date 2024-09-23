@@ -1,28 +1,21 @@
 <script setup lang="ts">
-import {randomBackground} from '~/src/functions'
+import {randomBackground} from '~/src/functions';
 import {getLiveTaskJson} from "~/src/liveTaskGetJson";
 import {ref} from "vue";
 import MasonryWall from '@yeger/vue-masonry-wall';
 import TaskTileComponent from "~/src/components/TaskTilePreComponent.vue";
 import TheTileModalContentComponent from "~/src/components/TheTileModalContentComponent.vue";
 import BaseH1 from "~/src/components/BaseH1.vue";
+import BaseCarousel from "~/src/components/BaseCarousel.vue";
 
 
-const taskPresentation = ref({
-  taskCode:Object,
-  taskTitle:String
-})
-const taskCode = ref()
-const taskTitle = ref();
-const taskList = await getLiveTaskJson();
-
-
-const searchTask = (taskId:number) => {
-  taskCode.value = taskList.default[taskId][1]
-  taskTitle.value = taskList.default[taskId][0]
-}
-
-
+const taskCode = ref(),
+    taskTitle = ref(),
+    taskList = await getLiveTaskJson(),
+    searchTask = (taskId: number) => {
+      taskCode.value = taskList.default[taskId][1]
+      taskTitle.value = taskList.default[taskId][0]
+    }
 
 </script>
 <template>
@@ -34,7 +27,6 @@ const searchTask = (taskId:number) => {
       <template v-slot:activator="{ props: activatorProps }">
         <masonry-wall :items="taskList.default" :ssr-columns="1" :column-width="300" :gap="16">
           <template #default="{ item, index }">
-
             <TaskTileComponent
                 @mouseover="searchTask(index)"
                 class="tile pa-2"
@@ -47,30 +39,20 @@ const searchTask = (taskId:number) => {
         </masonry-wall>
       </template>
       <template v-slot:default="{ isActive }">
-        <v-carousel
-            v-if="taskCode.length > 1"
+        <BaseCarousel
             :show-arrows="false"
             height="auto"
+            :slider-list="taskCode"
         >
-          <v-carousel-item
-              cover
-              v-for="item of taskCode"
-          >
+          <template v-slot:default="slotProps">
             <TheTileModalContentComponent
-                :code-task="item"
+                :code-task="slotProps.multiple"
                 :code-title="taskTitle"
                 :padding="true"
                 @closed.once="isActive.value = false"
             />
-          </v-carousel-item>
-        </v-carousel>
-        <TheTileModalContentComponent
-            v-else
-            :code-task="taskCode[0]"
-            :code-title="taskTitle"
-            :padding="false"
-            @closed.once="isActive.value = false"
-        />
+          </template>
+        </BaseCarousel>
       </template>
     </v-dialog>
   </div>
