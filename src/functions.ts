@@ -29,3 +29,6 @@ export function randomBackground() {
     let oppositeColor = invertHex(colorText);
     return [color + colorText, oppositeColor];
 }
+
+
+

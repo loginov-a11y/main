@@ -34,11 +34,12 @@ const searchTask = (taskId:number) => {
       <template v-slot:activator="{ props: activatorProps }">
         <masonry-wall :items="taskList.default" :ssr-columns="1" :column-width="300" :gap="16">
           <template #default="{ item, index }">
+
             <TaskTileComponent
                 @mouseover="searchTask(index)"
                 class="tile pa-2"
                 v-bind="activatorProps"
-                :key="item"
+                :key="index"
                 :tile-text="item[0]"
                 :styleBackground=randomBackground()
             />
