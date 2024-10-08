@@ -9,9 +9,7 @@ const props = defineProps({
 </script>
 
 <template>
-  <v-btn
-      class="animate-pulse-warning"
-  >
+  <v-btn>
     <slot/>
   </v-btn>
 </template>

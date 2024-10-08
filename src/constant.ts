@@ -45,4 +45,5 @@ export const INPUT_TYPE: Object = {
     text: 'text',
     number: 'number'
 }
+export const IMG_LIST = ['.png','.jpg','.jpeg']
 

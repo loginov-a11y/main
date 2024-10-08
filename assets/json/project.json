@@ -1,0 +1,223 @@
+[
+  [
+    {
+      "id": 11,
+      "project": "РУДН",
+      "project_description": "Российский университет дружбы народов",
+      "stack": [
+        "html5",
+        "scss",
+        "js6",
+        "vue3",
+        "quasar",
+        "php"
+      ],
+      "link": "https://www.rudn.ru/",
+      "work": [
+        "Устранил ошибки и добавил новый функционал",
+        "Ускорил первичную отрисовку страниц",
+        "Русифицировал админку и редактор статей",
+        "Дополнил документацию по проекту"
+      ],
+      "slider": [
+        "/_nuxt/assets/images/slider/4/1.png"
+      ]
+    },
+    {
+      "id": 12,
+      "project": "Caspian Travel",
+      "project_description": "УВЛЕКАТЕЛЬНЫЕ ТУРЫ И ЭКСКУРСИИ В ДАГЕСТАН",
+      "stack": [
+        "html5",
+        "scss",
+        "js6",
+        "jquery",
+        "php"
+      ],
+      "link": "https://caspian.travel/",
+      "work": [
+        "Сделал редизайн сайта",
+        "Улучшил поисковую оптимизацию микроразметка",
+        "Вывел сайт в зелёную зону pagespeed",
+        "Добавил новый функционал сайдбар,возможность выбора дат туров на любой странице и т.д",
+        "Добавил защиту форм от ботов"
+      ],
+      "slider": [
+        "/_nuxt/assets/images/slider/caspian/1.png",
+        "/_nuxt/assets/images/slider/caspian/2.png",
+        "/_nuxt/assets/images/slider/caspian/3.png",
+        "/_nuxt/assets/images/slider/caspian/4.png"
+      ]
+    },
+    {
+      "id": 13,
+      "project": "Кафе «МУ-МУ»",
+      "project_description": "Сеть кафе быстрого питания в Москве",
+      "stack": [
+        "html5",
+        "sass",
+        "js6",
+        "vue2"
+      ],
+      "link": "https://www.cafemumu.ru/",
+      "work": [
+        "Сверстал и запрограммировал раздел Корпоративное питание",
+        "Добавил сайдбар с оформлением товара и улучшил его функционал",
+        "Улучшил поисковую оптимизацию микроразметка",
+        "Сверстал и запрограммировал калькулятор цен",
+        ""
+      ],
+      "slider": [
+        "/_nuxt/assets/images/slider/4/1.png"
+      ]
+    }
+  ],
+  [
+    {
+      "id": 9,
+      "project": "АО «Faberlic»",
+      "project_description": "Российская компания прямых продаж, производитель косметики, одежды, аксессуаров, обуви и товаров других категорий",
+      "stack": [
+        "SAP",
+        "es6",
+        "TypeScript",
+        "vue3",
+        "java шаблонизатор вёрстки",
+        "scss"
+      ],
+      "link": "https://faberlic.com",
+      "work": [
+        "Добавил форму регистраций иностранных пользователей",
+        "Доработал функционал бронирования товара",
+        "Сделал частичный редизайн корзины",
+        "",
+        ""
+      ],
+      "slider": [
+        "/_nuxt/assets/images/slider/novardis/1.jpg"
+      ]
+    },
+    {
+      "id": 10,
+      "project": "ВИНЛАБ 9",
+      "project_description": "Супермаркет напитков",
+      "stack": [
+        "SAP",
+        "es6",
+        "TypeScript",
+        "vue3",
+        "java шаблонизатор вёрстки",
+        "scss"
+      ],
+      "link": "https://www.winelab.ru/",
+      "work": [
+      ],
+      "slider": [
+        "/_nuxt/assets/images/slider/winelab/.1png"
+      ]
+    }
+  ],
+  [
+    {
+      "id": 8,
+      "project": "freelance 3 clear 7",
+      "project_description": "",
+      "stack": [],
+      "link": "",
+      "work": [],
+      "slider": []
+    }
+  ],
+  [
+    {
+      "id": 7,
+      "project": "biplan clear 6",
+      "project_description": "",
+      "stack": [],
+      "link": "",
+      "work": [],
+      "slider": []
+    }
+  ],
+  [
+    {
+      "id": 6,
+      "project": "oknarosta clear 5",
+      "project_description": "",
+      "stack": [],
+      "link": "",
+      "work": [],
+      "slider": []
+    }
+  ],
+  [
+    {
+      "id": 5,
+      "project": "picom clear 4",
+      "project_description": "",
+      "stack": [],
+      "link": "",
+      "work": [],
+      "slider": []
+    }
+  ],
+  [
+    {
+      "id": 4,
+      "project": "Жажда бизнеса",
+      "project_description": "Бизнес-журнал «Жажда» – интернет-издание для молодых предпринимателей",
+      "stack": [
+        "css3",
+        "html5",
+        "Jquery",
+        "js",
+        "php",
+        "WordPress"
+      ],
+      "link": "https://zhazhda.biz/",
+      "work": [],
+      "slider": [
+        "/_nuxt/assets/images/slider/binet/1.jpeg"
+      ]
+    }
+  ],
+  [
+    {
+      "id": 3,
+      "project": "freelance 2 clear 2",
+      "project_description": "",
+      "stack": [],
+      "link": "",
+      "work": [],
+      "slider": []
+    }
+  ],
+  [
+    {
+      "id": 2,
+      "project": "Advark",
+      "project_description": "Платформа Advark обеспечивает управление показом рекламы различных форматов (видеоролики и баннеры)",
+      "stack": [
+        "css3",
+        "html5",
+        "js"
+      ],
+      "link": "",
+      "work": [],
+      "slider": [
+        "/_nuxt/assets/images/slider/pulter/1.jpg"
+      ]
+    }
+  ],
+  [
+    {
+      "id": 1,
+      "project": "freelance 1 clear 0",
+      "project_description": "",
+      "stack": [],
+      "link": "",
+      "work": [],
+      "slider": []
+    }
+  ]
+]
