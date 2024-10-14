@@ -68,7 +68,9 @@
         ""
       ],
       "slider": [
-        "/_nuxt/assets/images/slider/4/1.png"
+        "/_nuxt/assets/images/slider/mumu/1.jpg",
+        "/_nuxt/assets/images/slider/mumu/2.jpg",
+        "/_nuxt/assets/images/slider/mumu/3.jpg"
       ]
     }
   ],
@@ -99,7 +101,7 @@
     },
     {
       "id": 10,
-      "project": "ВИНЛАБ 9",
+      "project": "ВИНЛАБ",
       "project_description": "Супермаркет напитков",
       "stack": [
         "SAP",
@@ -113,7 +115,7 @@
       "work": [
       ],
       "slider": [
-        "/_nuxt/assets/images/slider/winelab/.1png"
+        "/_nuxt/assets/images/slider/novardis/winelab.jpg"
       ]
     }
   ],
@@ -131,12 +133,22 @@
   [
     {
       "id": 7,
-      "project": "biplan clear 6",
-      "project_description": "",
-      "stack": [],
+      "project": "Biplan",
+      "project_description": "Маркетинговое агентство Биплан",
+      "stack": ["html","less","canvas","js","jquery","paper.js"],
       "link": "",
-      "work": [],
-      "slider": []
+      "work": [
+        "Создал библиотеку фигур с возможностью сжимать и растягивать мышкой на основе paper.js",
+        "Сделал платформу для пользователем с возможностью добавления, удаления, переноса на холсте фигур.",
+        "Сверстал и запрограммировал на jquery адаптивный слайдер с возможностью динамического добавления и удаления элементов (фигур).",
+        "Добавил адаптивность приложению и фигурам.",
+        "Добавил возможность экспорта полученного документа в pdf."
+      ],
+      "slider": [
+        "/_nuxt/assets/images/slider/biplan/1.jpg",
+        "/_nuxt/assets/images/slider/biplan/2.jpg",
+        "/_nuxt/assets/images/slider/biplan/3.jpg"
+      ]
     }
   ],
   [
