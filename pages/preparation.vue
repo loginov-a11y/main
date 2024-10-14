@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {onMounted, ref} from "vue";
+import {onMounted, ref, watch} from "vue";
 import BaseH1 from "~/src/components/BaseH1.vue";
 
 import {preparationGetJson} from "~/src/preparationGetJson";
@@ -14,9 +14,10 @@ const taskList = ref([]);
 const showQuestion = ref([]);
 const progressBarModel = ref(0);
 const showIntervalQuestions = ref(1);
-const disableButton = ref(true);
+const disableButtonPlay = ref(true);
+const disableButtonStop = ref(true);
 const testStatus = ref(false);
-
+const timeMultiplier = ref(0);
 
 let stop = ref(false)
 
@@ -26,7 +27,37 @@ const selectCheck = (item: string) => {
   } else {
     selectFilter.value = selectFilter.value.filter((el) => el !== item)
   }
-  disableButton.value = selectFilter.value.length === 0;
+  disableButtonPlay.value = selectFilter.value.length === 0;
+}
+
+let questionSlider:any;
+
+const playStop = (event:string) => {
+  if(event === 'play'){
+    disableButtonPlay.value = true;
+    disableButtonStop.value = false;
+  }else{
+    disableButtonPlay.value = false;
+    disableButtonStop.value = true;
+    taskList.value = [];
+    testStatus.value = false;
+    progressBarModel.value = 0;
+  }
+}
+
+const nextTask = () => {
+  showQuestion.value = taskList.value.shift();
+  if (taskList.value.length === 0) {
+    stop.value = true;
+  }
+  return showQuestion.value.time;
+}
+const speedcal = () => {
+  return showIntervalQuestions.value * 60000 * (timeMultiplier.value || 1);
+}
+
+const testStart = (time: number) => {
+  playStop('play')
   for (let task of list) {
     selectFilter.value.forEach((item: string) => {
       if (task.tag === item) {
@@ -35,46 +66,48 @@ const selectCheck = (item: string) => {
     })
   }
   taskList.value = taskList.value.flat();
-}
-
-
-const nextTask = () => {
-  showQuestion.value = taskList.value.shift();
-  if (taskList.value.length === 0) {
-    stop.value = true;
-  }
-}
-
-
-const testStart = (time: number) => {
   testStatus.value = true;
   taskList.value = taskList.value.sort(() => Math.random() - 0.5);
-  let milliseconds = time * 60000 * (showQuestion.value.time || 1);
-
-  nextTask();
+  timeMultiplier.value = nextTask();
 
   function questionSliderFunction() {
     progressBarModel.value = ++progressBarModel.value;
     if (progressBarModel.value >= 100) {
       progressBarModel.value = 0
-      nextTask();
+      timeMultiplier.value = nextTask();
     }
   }
+  watch(() => speedcal(), () => {
+    clearInterval(questionSlider)
+    questionSlider = setInterval(() => {
+      questionSliderFunction();
+    }, speedcal() / 100);
+  }, {deep: true});
 
-  const questionSlider = setInterval(() => {
+
+  questionSlider = setInterval(() => {
     questionSliderFunction();
-  }, milliseconds / 100);
-  if (stop.value) {
-    setTimeout(() => {
-      clearInterval(questionSlider)
-    }, milliseconds - 10)
-  }
+  }, speedcal() / 100);
+
+  watch(() => stop.value, () => {
+    if (stop.value) {
+      setTimeout(() => {
+        clearInterval(questionSlider)
+      }, speedcal());
+    }
+  }, {deep: true});
+
 }
 const nextQuestions = () => {
   progressBarModel.value = 100;
 }
-onMounted(() => {
+const testStop = () => {
+  playStop('stop');
+  clearInterval(questionSlider);
+}
 
+
+onMounted(() => {
 
 })
 
@@ -108,9 +141,17 @@ onMounted(() => {
         <div>
           <BaseButton
               @click="testStart(showIntervalQuestions)"
-              :disabled='disableButton'
+              :disabled='disableButtonPlay'
+              class="button"
           >
             начать
+          </BaseButton>
+          <BaseButton
+              @click="testStop()"
+              :disabled='disableButtonStop'
+              class="button"
+          >
+            Остановить
           </BaseButton>
         </div>
       </div>
@@ -137,6 +178,8 @@ onMounted(() => {
             >
               Далее
             </BaseButton>
+
+
           </div>
 
         </div>
@@ -146,6 +189,7 @@ onMounted(() => {
 </template>
 
 <style scoped lang="scss">
+
 .card-task {
   display: block;
   position: relative;
@@ -159,7 +203,10 @@ onMounted(() => {
     margin: 20px auto;
   }
 }
-
+.button{
+  width: 100%;
+  margin: 15px 0;
+}
 .taskItem {
   position: relative;
   z-index: 2;
