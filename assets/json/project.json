@@ -122,12 +122,16 @@
   [
     {
       "id": 8,
-      "project": "freelance 3 clear 7",
+      "project": "Мобильное приложение под android смартфоны",
       "project_description": "",
-      "stack": [],
+      "stack": ["Angular","typescript","ionic","cordova","capacitor"],
       "link": "",
       "work": [],
-      "slider": []
+      "slider": [
+        "/_nuxt/assets/images/slider/freelance_app/1.jpg",
+        "/_nuxt/assets/images/slider/freelance_app/2.jpg",
+        "/_nuxt/assets/images/slider/freelance_app/3.jpg"
+      ]
     }
   ],
   [
@@ -165,12 +169,27 @@
   [
     {
       "id": 5,
-      "project": "picom clear 4",
-      "project_description": "",
-      "stack": [],
+      "project": "apteka.ru",
+      "project_description": "В интернет-аптеке в Москве на Apteka.ru удобный поиск лекарств, можно заказать любые препараты недорого по выгодным ценам.",
+      "stack": ["html","less","js","jquery","php"],
       "link": "",
       "work": [],
-      "slider": []
+      "slider": [
+        "/_nuxt/assets/images/slider/picom/2.jpg"
+      ]
+    },
+    {
+      "id": 5,
+      "project": "Глазовский комбикормовый завод",
+      "project_description": "Специализированный производитель престартерных комбикормов для всех видов сельскохозяйственных животных и птицы",
+      "stack": ["html","less","js","jquery","php"],
+      "link": "https://kombi-korm.ru/",
+      "work": [
+        "Сделан редизайн сайта"
+      ],
+      "slider": [
+        "/_nuxt/assets/images/slider/picom/1.jpg"
+      ]
     }
   ],
   [
@@ -187,9 +206,16 @@
         "WordPress"
       ],
       "link": "https://zhazhda.biz/",
-      "work": [],
+      "work": [
+        "Сделал редизайн сайта",
+        "Разработал разводящуюю страницу для рубрик Франшизы",
+        "Сделал фильтр франшиз",
+        "Сделал шаблон рубрики франшизы"
+      ],
       "slider": [
-        "/_nuxt/assets/images/slider/binet/1.jpeg"
+        "/_nuxt/assets/images/slider/binet/1.jpeg",
+        "/_nuxt/assets/images/slider/binet/2.jpg",
+        "/_nuxt/assets/images/slider/binet/3.jpg"
       ]
     }
   ],
