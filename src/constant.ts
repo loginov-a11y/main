@@ -10,6 +10,11 @@ export const NAV_ITEMS = [
         h1: 'js ts задачи из лайвкодинга'
     },
     {
+        page: '/preparation',
+        name: 'Подготовка',
+        h1: 'Подготовка к собеседованию'
+    },
+    {
         page: '/training',
         name: 'Базовые задачи',
         h1: 'Базовые задачи по разному функционалу'
@@ -46,4 +51,5 @@ export const INPUT_TYPE: Object = {
     number: 'number'
 }
 export const IMG_LIST = ['.png','.jpg','.jpeg']
+export const BASE_COLOR = '#5f9ea0';
 

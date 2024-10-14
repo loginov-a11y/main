@@ -31,7 +31,7 @@ defineProps({
 
 let emit = defineEmits(['update:modelValue']);
 
-const range = ref()
+const range = ref([0, thumbLabels.length-1])
 
 </script>
 
@@ -46,6 +46,7 @@ const range = ref()
   </div>
   <v-range-slider
       class="range"
+
       :max="9"
       :ticks="tickLabels"
       show-ticks="always"

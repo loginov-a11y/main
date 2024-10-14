@@ -17,7 +17,6 @@ import TheMultiplication from "~/src/components/TheMultiplication.vue";
       <h3>Таймер</h3>
     </div>
   </div>
-
 </template>
 
 
