@@ -23,7 +23,7 @@ const validateBackground = (str:string) => {
 <template>
   <v-carousel>
     <v-carousel-item
-        cover
+        contain
         v-for="item of props.sliderList"
         :src="validateBackground(item)"
     >

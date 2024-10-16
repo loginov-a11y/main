@@ -1,11 +1,12 @@
 <script setup lang="ts">
-import {onMounted, ref, watch} from "vue";
+import {onMounted, ref, watch, defineAsyncComponent } from "vue";
 import BaseH1 from "~/src/components/BaseH1.vue";
 
 import {preparationGetJson} from "~/src/preparationGetJson";
 import {BASE_COLOR, INPUT_TYPE} from "~/src/constant";
 import BaseButton from "~/src/components/BaseButton.vue";
 import BaseInput from "~/src/components/BaseInput.vue";
+import BaseAudio from "~/src/components/BaseAudio.vue";
 
 const preparation = await preparationGetJson();
 const list = preparation.default;
@@ -18,6 +19,9 @@ const disableButtonPlay = ref(true);
 const disableButtonStop = ref(true);
 const testStatus = ref(false);
 const timeMultiplier = ref(0);
+const audio = ref('')
+
+let asyncModalWithOptions;
 
 let stop = ref(false)
 
@@ -47,6 +51,12 @@ const playStop = (event:string) => {
 
 const nextTask = () => {
   showQuestion.value = taskList.value.shift();
+  audio.value = showQuestion.value.audio
+  if(audio.value.length !== 0){
+    asyncModalWithOptions = defineAsyncComponent({
+      loader: () => import('~/src/components/BaseAudio.vue'),
+    })
+  }
   if (taskList.value.length === 0) {
     stop.value = true;
   }
@@ -166,6 +176,12 @@ onMounted(() => {
                 height="10"
                 class="question_time_progress"
             ></v-progress-linear>
+            <component
+                v-if="audio.length !== 0"
+                :is="asyncModalWithOptions"
+                :audio-link="audio"
+            />
+
             <details class="taskItem">
               <summary class="btnAccordion">{{ showQuestion.question }}</summary>
               <br>

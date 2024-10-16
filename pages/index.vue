@@ -10,6 +10,7 @@ let projectListArr = ref(projectList.default.flat());
 const modelValue = ref();
 
 watch(() => modelValue, () => {
+  console.log('projectListArr',projectList.default)
   projectListArr.value = projectList.default.slice(modelValue.value[0], modelValue.value[1] + 1).flat();
 }, {deep: true});
 
@@ -18,6 +19,8 @@ watch(() => modelValue, () => {
 <template>
   <div class="pageContainer">
     <BaseH1/>
+
+
     <TheRangeSlider
         v-model="modelValue"
     />
@@ -36,6 +39,9 @@ watch(() => modelValue, () => {
     &:nth-child(odd) {
       & > div {
         flex-direction: row-reverse;
+        .btn-wrap{
+          text-align: left;
+        }
       }
     }
   }

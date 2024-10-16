@@ -8,7 +8,7 @@ const props = defineProps({
     type: Object
   }
 });
-
+const subHead = 'Как проходила работа:';
 const project = (item: any) => {
   return {
     projectName: item.project,
@@ -16,7 +16,9 @@ const project = (item: any) => {
     projectLink: item.link,
     projectStack: item.stack,
     projectSlider: item.slider,
-    projectTaskList: item.work
+    projectTaskList: item.work,
+    darkTime: item.no_info,
+    workflow: item.workflow
   }
 }
 const projectOut = project(props.projectArr)
@@ -27,12 +29,22 @@ const projectOut = project(props.projectArr)
   <div class="projectBorderWrap">
     <div class="project">
       <div class="project__slider">
+        <div
+            v-if="projectOut.darkTime"
+            class="dark_time"
+        >
+
+        </div>
         <BaseCarousel
+            v-else
             :show-arrows="false"
             :slider-list="projectOut.projectSlider"
         />
       </div>
-      <div class="project__description">
+      <div
+          class="project__description"
+          :class="{dark_time:projectOut.darkTime}"
+      >
         <h2>{{ projectOut.projectName }}</h2>
         <h4>{{ projectOut.projectDescription }}</h4>
         <hr>
@@ -45,23 +57,35 @@ const projectOut = project(props.projectArr)
           </div>
           <hr>
         </section>
-        <section>
+        <section
+            v-if="projectOut.projectTaskList.length !== 0"
+        >
           <div><strong class="subHead">Что было сделано:</strong></div>
           <ol>
             <li v-for="item of projectOut.projectTaskList">{{ item }}</li>
           </ol>
           <hr>
         </section>
-        <section>
-          <div><strong class="subHead">Как проходила работа:</strong></div>
-          <BaseDetails></BaseDetails>
+        <section
+            v-if="projectOut.workflow">
+          <BaseDetails
+              :header="subHead"
+          >
+            {{projectOut.workflow}}
+          </BaseDetails>
           <hr>
         </section>
-        <BaseButton
-            :href="projectOut.projectLink"
+        <div
+            class="btn-wrap"
+            v-if="projectOut.projectLink"
         >
-          Посетить сайт
-        </BaseButton>
+          <hr>
+          <BaseButton
+              :href="projectOut.projectLink"
+          >
+            Посетить сайт
+          </BaseButton>
+        </div>
       </div>
     </div>
   </div>
@@ -78,11 +102,74 @@ const projectOut = project(props.projectArr)
   width: 100%;
   border-radius: 6px;
   overflow: hidden;
+  min-height: 400px;
+  border: solid 4px #5f9ea0;
   &__slider, &__description {
     width: 50%;
+    position: relative;
   }
   &__description{
     padding: 20px;
+    &.dark_time{
+      .details{
+        width: 70%;
+      }
+      section{
+        position: relative;
+        &:last-of-type{
+          &:after{
+            display: block;
+            content: '';
+            background: url("~/assets/images/saimon/not_work.webp") no-repeat;
+            width: 200px;
+            height: 200px;
+            background-size: contain;
+            scale: -1 1;
+            position: absolute;
+            right: 0;
+            top: 0;
+          }
+        }
+      }
+    }
+    section{
+      &:last-of-type{
+        hr{
+          display: none;
+        }
+      }
+    }
+  }
+  &__slider{
+    .dark_time{
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: #f3f3f314;
+      &:before,&:after{
+        content: '';
+        display: block;
+        position: absolute;
+      }
+      &:before{
+        background: url("~/assets/images/saimon/saimon_sadness.png") no-repeat;
+        background-size: contain;
+        width: 200px;
+        height: 95px;
+        bottom: 0;
+        right: 50%;
+      }
+      &:after{
+        background: url("~/assets/images/saimon/web.png") no-repeat;
+        background-size: contain;
+        width: 250px;
+        height: 234px;
+        left: 0;
+        top: 0;
+      }
+    }
   }
 }
 .projectBorderWrap{
@@ -93,27 +180,8 @@ const projectOut = project(props.projectArr)
   justify-content: center;
   align-items: center;
   border-radius: 6px;
-  &:before {
-    content: "";
-    display: block;
-    background: linear-gradient(90deg, hsl(0deg 0% 100%) 0%, hsl(0deg 0% 0%) 100%);
-    height: 2000px;
-    width: 2000px;
-    position: absolute;
-    animation: rotate 8s linear infinite;
-    z-index: 0;
-  }
 }
 
-@keyframes rotate {
-  from {
-    transform: rotate(0);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-}
 .stag{
   span{
     margin: 0 10px 0 0;
@@ -130,5 +198,10 @@ hr{
   background: #305152;
   border: none;
   height: 1px;
+}
+
+.btn-wrap{
+  text-align: right;
+  .v-btn {}
 }
 </style>

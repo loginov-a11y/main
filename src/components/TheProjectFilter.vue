@@ -9,20 +9,22 @@ const tickLabels = {
   4: '2019-2020', // 'Экоокна'
   5: '2017-2019', // 'Picom'
   6: '2016-2017', // 'BINET.PRO'
-  7: '2015-2016', // 'Фриланс'
-  8: '2014-2015', // 'Pulter'
-  9: '2011-2013', // 'Фриланс'
+  7: '2015-2016', // 'Pulter'
+  8: '2014-2015', // 'Фриланс'
+  9: '2014-2014', // 'Везёт всем'
+  10: '2011-2013', // 'Фриланс'
 }
 const thumbLabels = [
   'ONE TOUCH',
   'NOVARDIS',
-  'Фриланс',
+  'Integroz',
   'Биплан',
   'Экоокна',
   'Picom',
   'BINET.PRO',
   'Фриланс',
   'Pulter',
+  'Везёт всем',
   'Фриланс',
 ]
 defineProps({
@@ -31,7 +33,7 @@ defineProps({
 
 let emit = defineEmits(['update:modelValue']);
 
-const range = ref([0, thumbLabels.length-1])
+const range = ref([0, thumbLabels.length - 1])
 
 </script>
 
@@ -41,18 +43,16 @@ const range = ref([0, thumbLabels.length-1])
         class="range-labels__wrap"
         v-for="label in thumbLabels"
     >
-      <div class="range-labels__item">{{label}}</div>
+      <div class="range-labels__item">{{ label }}</div>
     </div>
   </div>
   <v-range-slider
       class="range"
-
-      :max="9"
+      :max="10"
       :ticks="tickLabels"
       show-ticks="always"
       :step="1"
       min="0"
-
       v-model="range"
       @end="emit('update:modelValue', range)"
   />
@@ -60,14 +60,16 @@ const range = ref([0, thumbLabels.length-1])
 
 <style scoped lang="scss">
 .range {
-  margin: 15px 40px 50px ;
+  margin: 15px 40px 50px;
 }
-.range-labels{
+
+.range-labels {
   display: flex;
   padding: 0 40px;
   justify-content: space-between;
   position: relative;
-  &__item{
+
+  &__item {
     background: #353535a3;
     color: #fff;
     border-radius: 4px;
@@ -76,7 +78,8 @@ const range = ref([0, thumbLabels.length-1])
     white-space: nowrap;
     width: fit-content;
     position: relative;
-    &:before{
+
+    &:before {
       display: block;
       position: absolute;
       content: '';
@@ -91,7 +94,8 @@ const range = ref([0, thumbLabels.length-1])
       top: 100%;
     }
   }
-  &__wrap{
+
+  &__wrap {
     width: 0;
     position: relative;
     display: flex;
